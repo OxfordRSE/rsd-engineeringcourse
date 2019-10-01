@@ -1,0 +1,10 @@
+@startuml
+class Lattice {
+}
+class Quark {
+}
+class Gluon {
+}
+Lattice "1" o-- "*" Quark
+Lattice "1" o-- "*" Gluon
+@enduml

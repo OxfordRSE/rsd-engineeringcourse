@@ -1,0 +1,23 @@
+@startuml
+class Particle {
+  position : Point
+  momentum : Vector
+  energy : Scalar
+  charge : Colour
+  spin : Number
+}
+
+class Quark {
+  electric_charge : Number
+  mass: Scalar
+}
+note bottom : spin must be +/- 0.5
+
+class Gluon {
+}
+note bottom : spin must be +/- 1
+
+Particle <|-- Quark
+Particle <|-- Gluon
+@enduml
+
