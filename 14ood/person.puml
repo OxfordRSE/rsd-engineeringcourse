@@ -1,0 +1,9 @@
+@startuml
+class Person {
+  name : String
+  age : Integer
+  void grow_up()
+  Person __init__(self, name, age)
+}
+@enduml
+

@@ -1,0 +1,6 @@
+@startuml
+Class MyClass {
+  void someMethod(argument)
+}
+@enduml
+

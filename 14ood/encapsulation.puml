@@ -1,0 +1,9 @@
+@startuml
+class MyClass {
+  -privateInstanceVariable
+  +publicInstanceVariable
+  -privateMethod()
+  +publicMethod()
+}
+@enduml
+

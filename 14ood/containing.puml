@@ -1,0 +1,8 @@
+@startuml
+class Quark {
+}
+class Hadron {
+}
+Hadron "1" *-- "3" Quark
+@enduml
+

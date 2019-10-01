@@ -1,0 +1,7 @@
+@startuml
+class MyClass {
+  Object member
+  MyClass __init__(self)
+}
+@enduml
+
