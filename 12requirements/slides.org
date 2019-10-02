@@ -1,0 +1,95 @@
+#+OPTIONS: num:nil toc:nil timestamp:nil
+#+REVEAL_PLUGINS: (notes)
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+REVEAL_THEME: serif
+#+Title: Requirements Engineering
+#+Author: Graham Lee
+#+Email: graham.lee@cs.ox.ac.uk
+
+* What are requirements?
+** Something you* need** the software to do***.
+
+ *or somebody else
+
+ **or want, or merely think you need
+
+ ***or to _be like_.
+
+* Requirements in conflict
+** As a psychologist, to enable future multi-variate analysis on my data, I need to capture and save rich demographic information about my participants.
+** As a University employee, to comply with local data policies and regulations, I need to only store information that supports identified goals for the minimum time possible.
+** Sometimes these conflicts are intrinsic to the problem being solved.
+* Functional requirements
+** _Behaviour_ desired in the system.
+I can make the system perform this action.
+
+I can read a report with this information.
+* Non-functional requirements
+** Other properties desired in the system.
+Usability
+
+Accessibility
+
+Internationalisation
+
+Security
+
+Performance
+
+Portability
+
+...
+* "User story" format
+** As a <role>, I want <goal> so that <justification>.
+
+Beware "as a user"!
+
+Focus on the story aspect
+* Are requirements real?
+* How to elicit requirements
+** Goal Donors vs. Gold Owners
+** 
+[[./elicitation.png]]
+#+BEGIN_NOTES
+"Individual" stakeholder means one-at-a-time. People may engage differently as individuals than in a group, e.g. power dynamics.
+Consider realism: people may say one thing about their work but do something completely different!
+Quantitative vs. Qualitative data
+#+END_NOTES
+* Methodologies
+** Methodology ought to be the analysis (logos) of procedures (methodos).
+But it's not, in software.
+
+It's a fancy name for a method for turning goals into requirements into working(!) software.
+** Waterfall
+[[./waterfall.png]]
+
+Seemingly proposed as a strawman (W.W. Royce, 1970) but nonetheless became very popular. Defined software engineering up to 2001.
+** Iterative and Incremental
+
+_Iterative_: breaking a big project into little projects
+
+_Incremental_: successive additions to an existing artifact
+** Agile Software Development
+
+Individuals and interactions over processes and tools
+
+Working software over comprehensive documentation
+
+Customer collaboration over contract negotiation
+
+Responding to change over following a plan
+*** Post-agile
+
+Software Craftsmanship
+
+DevOps
+
+*** Lean Startup
+
+Good fit for limited-budget small teams iterating rapidly on generating results.
+
+From the book of the same name (Eric Ries, 2011)
+
+Data-driven, fast feedback, fast reaction.
+
+*** Lean Research?

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Requirements Engineering</title>
+<meta name="author" content="(Graham Lee)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/serif.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Requirements Engineering</h1><h2 class="author">Graham Lee</h2>
+</section>
+
+<section>
+<section id="slide-sec-">
+<h2 id="orgfd65b71">What are requirements?</h2>
+<div class="outline-text-2" id="text-orgfd65b71">
+</div>
+</section>
+<section id="slide-sec-">
+<h3 id="orgbe7a627">Something you* need** the software to do***.</h3>
+<p>
+*or somebody else
+</p>
+
+<p>
+**or want, or merely think you need
+</p>
+
+<p>
+***or to <span class="underline">be like</span>.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h2 id="org2e8cff8">Requirements in conflict</h2>
+<div class="outline-text-2" id="text-org2e8cff8">
+</div>
+</section>
+<section id="slide-sec-">
+<h3 id="org667ba1f">As a psychologist, to enable future multi-variate analysis on my data, I need to capture and save rich demographic information about my participants.</h3>
+</section>
+<section id="slide-sec-">
+<h3 id="org5f0fde9">As a University employee, to comply with local data policies and regulations, I need to only store information that supports identified goals for the minimum time possible.</h3>
+</section>
+<section id="slide-sec-">
+<h3 id="org76a5cd9">Sometimes these conflicts are intrinsic to the problem being solved.</h3>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h2 id="org0c5ab5b">Functional requirements</h2>
+<div class="outline-text-2" id="text-org0c5ab5b">
+</div>
+</section>
+<section id="slide-sec-">
+<h3 id="org0903ba5"><span class="underline">Behaviour</span> desired in the system.</h3>
+<p>
+I can make the system perform this action.
+</p>
+
+<p>
+I can read a report with this information.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h2 id="org92e5fa7">Non-functional requirements</h2>
+<div class="outline-text-2" id="text-org92e5fa7">
+</div>
+</section>
+<section id="slide-sec-">
+<h3 id="org352896f">Other properties desired in the system.</h3>
+<p>
+Usability
+</p>
+
+<p>
+Accessibility
+</p>
+
+<p>
+Internationalisation
+</p>
+
+<p>
+Security
+</p>
+
+<p>
+Performance
+</p>
+
+<p>
+Portability
+</p>
+
+<p>
+&#x2026;
+</p>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h2 id="orgb17da76">"User story" format</h2>
+<div class="outline-text-2" id="text-orgb17da76">
+</div>
+</section>
+<section id="slide-sec-">
+<h3 id="org9e9ad70">As a &lt;role&gt;, I want &lt;goal&gt; so that &lt;justification&gt;.</h3>
+<p>
+Beware "as a user"!
+</p>
+
+<p>
+Focus on the story aspect
+</p>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h2 id="orgc7c3ec8">Are requirements real?</h2>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h2 id="org061d6d9">How to elicit requirements</h2>
+<div class="outline-text-2" id="text-org061d6d9">
+</div>
+</section>
+<section id="slide-sec-">
+<h3 id="org7f71801">Goal Donors vs. Gold Owners</h3>
+</section>
+<section id="slide-sec-">
+<h3 id="org36d82c6"></h3>
+
+<div class="figure">
+<p><img src="./elicitation.png" alt="elicitation.png" />
+</p>
+</div>
+<aside class="notes">
+<p>
+"Individual" stakeholder means one-at-a-time. People may engage differently as individuals than in a group, e.g. power dynamics.
+Consider realism: people may say one thing about their work but do something completely different!
+Quantitative vs. Qualitative data
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h2 id="orge6c601f">Methodologies</h2>
+<div class="outline-text-2" id="text-orge6c601f">
+</div>
+</section>
+<section id="slide-sec-">
+<h3 id="org35633cf">Methodology ought to be the analysis (logos) of procedures (methodos).</h3>
+<p>
+But it's not, in software.
+</p>
+
+<p>
+It's a fancy name for a method for turning goals into requirements into working(!) software.
+</p>
+</section>
+<section id="slide-sec-">
+<h3 id="org5437b22">Waterfall</h3>
+
+<div class="figure">
+<p><img src="./waterfall.png" alt="waterfall.png" />
+</p>
+</div>
+
+<p>
+Seemingly proposed as a strawman (W.W. Royce, 1970) but nonetheless became very popular. Defined software engineering up to 2001.
+</p>
+</section>
+<section id="slide-sec-">
+<h3 id="org4350a1b">Iterative and Incremental</h3>
+<p>
+<span class="underline">Iterative</span>: breaking a big project into little projects
+</p>
+
+<p>
+<span class="underline">Incremental</span>: successive additions to an existing artifact
+</p>
+</section>
+<section id="slide-sec-">
+<h3 id="orga1f8f46">Agile Software Development</h3>
+<p>
+Individuals and interactions over processes and tools
+</p>
+
+<p>
+Working software over comprehensive documentation
+</p>
+
+<p>
+Customer collaboration over contract negotiation
+</p>
+
+<p>
+Responding to change over following a plan
+</p>
+</section>
+<section id="slide-sec-">
+<h4 id="org7ff4f65">Post-agile</h4>
+<p>
+Software Craftsmanship
+</p>
+
+<p>
+DevOps
+</p>
+
+</section>
+<section id="slide-sec-">
+<h4 id="org33575c2">Lean Startup</h4>
+<p>
+Good fit for limited-budget small teams iterating rapidly on generating results.
+</p>
+
+<p>
+From the book of the same name (Eric Ries, 2011)
+</p>
+
+<p>
+Data-driven, fast feedback, fast reaction.
+</p>
+
+</section>
+<section id="slide-sec-">
+<h4 id="org0888128">Lean Research?</h4>
+</section>
+</section>
+</div>
+</div>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
