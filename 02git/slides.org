@@ -383,7 +383,7 @@ d250add Add a lie about a mountain.
 Your git repo needs to know about the one on github. Git calls other repositories "remotes".
 
 #+BEGIN_EXAMPLE
-$ git remote add origin git@github.com:iamleeg/github-example.git
+$ git remote add origin https://github.com/iamleeg/github-example.git
 #+END_EXAMPLE
 
 ** Sharing with git
@@ -498,7 +498,7 @@ The collaborator(s) now find the leader's Github repo and clone it:
 
 #+BEGIN_EXAMPLE
 $ cd ..
-$ git clone git@github.com:leader_name/github_example.git leader_repo
+$ git clone https://github.com/leader_name/github_example.git leader_repo
 $ cd leader_repo
 #+END_EXAMPLE
 
@@ -553,7 +553,7 @@ $ git commit -m "Add Scotland"
 LEADER
 #+BEGIN_EXAMPLE
 $ git push
-To git@github.com:iamleeg/github_example.git
+To https://github.com/iamleeg/github_example.git
    79b1285..aed6a4d  master -> master
 #+END_EXAMPLE
 
@@ -562,7 +562,7 @@ To git@github.com:iamleeg/github_example.git
 COLLABORATOR
 #+BEGIN_EXAMPLE
 $ git push
-To git@github.com:iamleeg/github_example.git
+To https://github.com/iamleeg/github_example.git
  ! [rejected]        master -> master (fetch first)
 error: failed to push some refs to 'git@github.com:iamleeg/github_example.git'
 hint: Updates were rejected because the remote contains work that you do
@@ -595,7 +595,7 @@ From github.com:iamleeg/github_example
 COLLABORATOR
 #+BEGIN_EXAMPLE
 $ git push
-To git@github.com:iamleeg/github_example.git
+To https://github.com/iamleeg/github_example.git
    aed6a4d..4bc25e9  master -> master
 #+END_EXAMPLE
 
@@ -621,7 +621,7 @@ $ git push
 [master 3c4a02f] Add another Beacon
  1 file changed, 2 insertions(+), 1 deletion(-)
 
-To git@github.com:iamleeg/github_example.git
+To https://github.com/iamleeg/github_example.git
    54a5484..3c4a02f  master -> master
 #+END_EXAMPLE
 
@@ -643,7 +643,7 @@ $ git push
 [master a5f66ac] Add Glyder
  1 file changed, 2 insertions(+), 1 deletion(-)
 
-To git@github.com:iamleeg/github_example.git
+To https://github.com/iamleeg/github_example.git
  ! [rejected]        master -> master (fetch first)
 ...
 #+END_EXAMPLE
