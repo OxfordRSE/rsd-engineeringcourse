@@ -497,7 +497,9 @@ collaborator(s) to their project.
 The collaborator(s) now find the leader's Github repo and clone it:
 
 #+BEGIN_EXAMPLE
-$ git clone git@github.com:leader_name/github_example.git
+$ cd ..
+$ git clone git@github.com:leader_name/github_example.git leader_repo
+$ cd leader_repo
 #+END_EXAMPLE
 
 This automatically sets up a remote called "origin".
