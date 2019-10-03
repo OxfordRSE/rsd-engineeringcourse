@@ -31,14 +31,14 @@
 
 <section>
 <section id="slide-sec-">
-<h2 id="org43fa431">Version control</h2>
+<h2 id="org54f894f">Version control</h2>
 <p>
 What are we trying to achieve?
 </p>
 
 </section>
 <section id="slide-sec-">
-<h3 id="orga4bff78">For one person</h3>
+<h3 id="org742a22a">For one person</h3>
 <ul>
 <li>An unlimited undo stack</li>
 <li>With annotated history</li>
@@ -48,7 +48,7 @@ What are we trying to achieve?
 
 </section>
 <section id="slide-sec-">
-<h3 id="orge5cb4b7">How do I do that?</h3>
+<h3 id="org7e149cb">How do I do that?</h3>
 <ul>
 <li>edit</li>
 <li>commit</li>
@@ -61,7 +61,7 @@ What are we trying to achieve?
 
 </section>
 <section id="slide-sec-">
-<h3 id="orgbca2cfd">For two or more people</h3>
+<h3 id="orgbff4be6">For two or more people</h3>
 <ul>
 <li>A shared undo stack</li>
 <li>Common history</li>
@@ -71,7 +71,7 @@ What are we trying to achieve?
 
 </section>
 <section id="slide-sec-">
-<h3 id="org0bf4761">How do we do that?</h3>
+<h3 id="orgd9566d0">How do we do that?</h3>
 <p>
 Player 1:
 </p>
@@ -99,12 +99,12 @@ Player 2:
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="orge8b6597">Git</h2>
-<div class="outline-text-2" id="text-orge8b6597">
+<h2 id="orgaf55a04">Git</h2>
+<div class="outline-text-2" id="text-orgaf55a04">
 </div>
 </section>
 <section id="slide-sec-">
-<h3 id="org3c16390">Git version control</h3>
+<h3 id="org928ff32">Git version control</h3>
 <p>
 Git is a particular version control system. There are others.
 </p>
@@ -119,7 +119,7 @@ GitHub is not git, it is a social network based on git interactions.
 
 </section>
 <section id="slide-sec-">
-<h3 id="orgd5a2f09">Workflow</h3>
+<h3 id="org41c453f">Workflow</h3>
 <p>
 Git knows about three places where changes exist.
 </p>
@@ -147,7 +147,7 @@ you're committed.
 
 </section>
 <section id="slide-sec-">
-<h4 id="orgaf7810d"></h4>
+<h4 id="orgc1ff0a8"></h4>
 
 <div class="figure">
 <p><img src="./images/staging.png" alt="staging.png" />
@@ -158,12 +158,12 @@ you're committed.
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="orgb537e93">Getting started</h2>
-<div class="outline-text-2" id="text-orgb537e93">
+<h2 id="org2ce4ddd">Getting started</h2>
+<div class="outline-text-2" id="text-org2ce4ddd">
 </div>
 </section>
 <section id="slide-sec-">
-<h3 id="org3d515eb">Walkthrough</h3>
+<h3 id="orge2e9617">Walkthrough</h3>
 <p>
 Hopefully, you've installed git.
 </p>
@@ -178,15 +178,16 @@ menu. Use that.
 
 </section>
 <section id="slide-sec-">
-<h4 id="orgd663be7">Configure git</h4>
+<h4 id="orga0a263d">Configure git</h4>
 <pre class="example">
 $ git config --global user.name "Graham Lee"
 $ git config --global user.email "graham.lee@cs.ox.ac.uk"
+$ git config --global core.editor nano
 </pre>
 
 </section>
 <section id="slide-sec-">
-<h4 id="orgc6953b0">Make a repository</h4>
+<h4 id="orgd4b618b">Make a repository</h4>
 <pre class="example">
 $ mkdir learning_git
 $ cd learning_git
@@ -204,7 +205,7 @@ You may want to do this somewhere specific, like Documents.
 
 </section>
 <section id="slide-sec-">
-<h4 id="orge4879f5">Check that it worked</h4>
+<h4 id="org8bb23c7">Check that it worked</h4>
 <pre class="example">
 $ git status
 On branch master
@@ -216,12 +217,12 @@ nothing to commit (create/copy files and use "git add" to track)
 
 </section>
 <section id="slide-sec-">
-<h3 id="org5a9f6aa">A first file</h3>
-<div class="outline-text-3" id="text-org5a9f6aa">
+<h3 id="org86ccdd3">A first file</h3>
+<div class="outline-text-3" id="text-org86ccdd3">
 </div>
 </section>
 <section id="slide-sec-">
-<h4 id="orgcd769b6">Create the file</h4>
+<h4 id="orge88dab6">Create the file</h4>
 <pre class="example">
 $ nano index.md
 
@@ -233,7 +234,7 @@ But has some tall hills, and maybe a mountain or two.
 
 </section>
 <section id="slide-sec-">
-<h4 id="org3e18078">It's not in git!</h4>
+<h4 id="orgb7d3740">It's not in git!</h4>
 <pre class="example">
 $ git status
 On branch master
@@ -250,7 +251,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 </section>
 <section id="slide-sec-">
-<h4 id="org3ed776c">Git told us twice to use "git add"</h4>
+<h4 id="org5da5ac5">Git told us twice to use "git add"</h4>
 <p>
 So let's do that. This <i>stages</i> the file.
 </p>
@@ -261,7 +262,7 @@ $ git add index.md
 
 </section>
 <section id="slide-sec-">
-<h4 id="orgc6a80b5">And now commit the staged changes</h4>
+<h4 id="org7e53e81">And now commit the staged changes</h4>
 <pre class="example">
 $ git commit -m "First commit of discourse on UK topography"
 [master (root-commit) 20ad49c] First commit of discourse on UK topography
@@ -271,7 +272,7 @@ $ git commit -m "First commit of discourse on UK topography"
 
 </section>
 <section id="slide-sec-">
-<h4 id="orga232cee">Confirm that the change is there&#x2026;</h4>
+<h4 id="org1d0543f">Confirm that the change is there&#x2026;</h4>
 <pre class="example">
 $ git log
 commit 20ad49cfd1a8a359d30f433dd7263fb25c43c400 (HEAD -&gt; master)
@@ -291,7 +292,7 @@ identifies this change. When git needs you to refer to a commit, you can use thi
 
 </section>
 <section id="slide-sec-">
-<h4 id="org4f1b21d">&#x2026;and there are no more outstanding changes</h4>
+<h4 id="org61512cf">&#x2026;and there are no more outstanding changes</h4>
 <pre class="example">
 $ git status
 On branch master
@@ -300,7 +301,7 @@ nothing to commit, working tree clean
 
 </section>
 <section id="slide-sec-">
-<h4 id="org03c7cc2">Make another change</h4>
+<h4 id="orge304748">Make another change</h4>
 <pre class="example">
 $ nano index.md
 
@@ -315,7 +316,7 @@ mountain in the world.
 
 </section>
 <section id="slide-sec-">
-<h4 id="org92bbb2b">git can see the change&#x2026;</h4>
+<h4 id="orgfc9036a">git can see the change&#x2026;</h4>
 <pre class="example">
 $ git status
 On branch master
@@ -337,7 +338,7 @@ Git wouldn't commit our change yet, because we haven't staged it.
 
 </section>
 <section id="slide-sec-">
-<h4 id="org2be9d99">&#x2026;and can show us the differences</h4>
+<h4 id="orgbce6136">&#x2026;and can show us the differences</h4>
 <pre class="example">
 $ git diff
 diff --git a/index.md b/index.md
@@ -356,7 +357,7 @@ index 9f69649..699e698 100644
 
 </section>
 <section id="slide-sec-">
-<h4 id="orgccea115">Add all updated files, and commit</h4>
+<h4 id="org5084dcb">Add all updated files, and commit</h4>
 <pre class="example">
 $ git add --update
 
@@ -371,7 +372,7 @@ d250add (HEAD -&gt; master) Add a lie about a mountain.
 
 </section>
 <section id="slide-sec-">
-<h4 id="org39be3be">Another edit</h4>
+<h4 id="orga1df504">Another edit</h4>
 <p>
 We'll come back to that mistake later, but for now carry on regardless.
 </p>
@@ -394,7 +395,7 @@ index 699e698..6bc639e 100644
 
 </section>
 <section id="slide-sec-">
-<h4 id="org435eea8">Another edit</h4>
+<h4 id="orgec40297">Another edit</h4>
 <pre class="example">
 $ git commit -am "Change title"
 [master 43db675] Change title
@@ -410,12 +411,12 @@ followed by "git commit".
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="orgbfe71ff">Correcting mistakes</h2>
-<div class="outline-text-2" id="text-orgbfe71ff">
+<h2 id="org67e80b3">Correcting mistakes</h2>
+<div class="outline-text-2" id="text-org67e80b3">
 </div>
 </section>
 <section id="slide-sec-">
-<h3 id="org2574d8f">Review history</h3>
+<h3 id="org7c32038">Review history</h3>
 <pre class="example">
 $ git log --oneline
 43db675 (HEAD -&gt; master) Change title
@@ -430,7 +431,7 @@ about it?
 
 </section>
 <section id="slide-sec-">
-<h3 id="orgb206db2">Reverting the commit</h3>
+<h3 id="org720af3a">Reverting the commit</h3>
 <pre class="example">
 $ git revert HEAD^
 [master 4a08366] Revert "Add a lie about a mountain."
@@ -445,7 +446,7 @@ d250add Add a lie about a mountain.
 
 </section>
 <section id="slide-sec-">
-<h3 id="org9ca88ed">Rewriting history</h3>
+<h3 id="orgeccbbb4">Rewriting history</h3>
 <p>
 The revert added a new commit, "undoing" our mistake. So both the
 original commit and the undo appear in the history. Can we remove the
@@ -454,7 +455,7 @@ mistake entirely, pretending we never made it?
 
 </section>
 <section id="slide-sec-">
-<h4 id="org1afa6c9">Rewriting history</h4>
+<h4 id="org53017f4">Rewriting history</h4>
 <pre class="example">
 $ nano index.md
 
@@ -472,7 +473,7 @@ index 16e9f68..fe8cbca 100644
 
 </section>
 <section id="slide-sec-">
-<h4 id="orgadf0594">Rewriting history</h4>
+<h4 id="org5632170">Rewriting history</h4>
 <pre class="example">
 $ git commit -am "Change spelling"
 [master 92754c8] Change spelling
@@ -488,7 +489,7 @@ d250add Add a lie about a mountain.
 
 </section>
 <section id="slide-sec-">
-<h4 id="org6f83236">Rewriting history</h4>
+<h4 id="org05d6390">Rewriting history</h4>
 <pre class="example">
 $ git reset HEAD^
 Unstaged changes after reset:
@@ -505,12 +506,12 @@ d250add Add a lie about a mountain.
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="orgcc933ae">Publishing on Github</h2>
-<div class="outline-text-2" id="text-orgcc933ae">
+<h2 id="org9587af9">Publishing on Github</h2>
+<div class="outline-text-2" id="text-org9587af9">
 </div>
 </section>
 <section id="slide-sec-">
-<h3 id="org7790826">What is GitHub?</h3>
+<h3 id="orgcd8385c">What is GitHub?</h3>
 <ul>
 <li>A cloud store for git repositories</li>
 <li>A social network for programmers</li>
@@ -519,7 +520,7 @@ d250add Add a lie about a mountain.
 
 </section>
 <section id="slide-sec-">
-<h3 id="org3c119e4">Getting Started</h3>
+<h3 id="orgaaa7404">Getting Started</h3>
 <ul>
 <li>Create an account (if you haven't already)</li>
 <li>(Optionally, but recommended) set up an SSH key</li>
@@ -529,7 +530,7 @@ d250add Add a lie about a mountain.
 
 </section>
 <section id="slide-sec-">
-<h3 id="org7920bc3">Add a Remote</h3>
+<h3 id="org8cb5610">Add a Remote</h3>
 <p>
 Your git repo needs to know about the one on github. Git calls other repositories "remotes".
 </p>
@@ -540,7 +541,7 @@ $ git remote add origin git@github.com:iamleeg/github-example.git
 
 </section>
 <section id="slide-sec-">
-<h3 id="orgeb4491d">Sharing with git</h3>
+<h3 id="orgc050fdf">Sharing with git</h3>
 <p>
 <i>push</i> and <i>pull</i> work with commits, not local files or staged changes.
 </p>
@@ -553,7 +554,7 @@ $ git remote add origin git@github.com:iamleeg/github-example.git
 
 </section>
 <section id="slide-sec-">
-<h3 id="orgcc1d688">Your first push!</h3>
+<h3 id="orgb07decd">Your first push!</h3>
 <p>
 Publish your work so far:
 </p>
@@ -573,7 +574,7 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 
 </section>
 <section id="slide-sec-">
-<h3 id="org070432b">Add another file</h3>
+<h3 id="orgdd38e02">Add another file</h3>
 <pre class="example">
 $ nano lakeland.md
 
@@ -585,7 +586,7 @@ Cumbria has some pretty hills, and lakes too.
 
 </section>
 <section id="slide-sec-">
-<h4 id="org7b762ff">Git studiously ignores it&#x2026;</h4>
+<h4 id="org96e988a">Git studiously ignores it&#x2026;</h4>
 <pre class="example">
 $ git status
 On branch master
@@ -601,7 +602,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 </section>
 <section id="slide-sec-">
-<h4 id="org1e71da8">&#x2026;even if you try to commit&#x2026;</h4>
+<h4 id="orga1589a4">&#x2026;even if you try to commit&#x2026;</h4>
 <pre class="example">
 $ git commit -am 'Add Lakeland'
 On branch master
@@ -615,7 +616,7 @@ nothing added to commit but untracked files present
 
 </section>
 <section id="slide-sec-">
-<h4 id="org0c34fa9">&#x2026;because you need to explicitly add new files.</h4>
+<h4 id="org554d4ea">&#x2026;because you need to explicitly add new files.</h4>
 <pre class="example">
 $ git add lakeland.md
 $ git commit -am 'Add Lakeland'
@@ -626,7 +627,7 @@ $ git commit -am 'Add Lakeland'
 
 </section>
 <section id="slide-sec-">
-<h4 id="orgc6aca32">Push this change to Github</h4>
+<h4 id="org20c02e4">Push this change to Github</h4>
 <aside class="notes">
 <p>
 Important to realise that git doesn't stay in sync.
@@ -647,7 +648,7 @@ To github.com:iamleeg/github_example.git
 
 </section>
 <section id="slide-sec-">
-<h3 id="org1745c44">More on multiple files</h3>
+<h3 id="org24243af">More on multiple files</h3>
 <ul>
 <li>Stage/commit different files separately, or together</li>
 <li>Or even different changes in the same file!</li>
@@ -658,12 +659,12 @@ To github.com:iamleeg/github_example.git
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="orgab4599a">Collaborating with Github</h2>
-<div class="outline-text-2" id="text-orgab4599a">
+<h2 id="orga4f773f">Collaborating with Github</h2>
+<div class="outline-text-2" id="text-orga4f773f">
 </div>
 </section>
 <section id="slide-sec-">
-<h3 id="orgfd799b0">You need a team</h3>
+<h3 id="org2a75399">You need a team</h3>
 <p>
 Form pairs. If there are an odd number of you, form pairs and a trio.
 Designate one person as the "leader", the other(s) will collaborate.
@@ -671,7 +672,7 @@ Designate one person as the "leader", the other(s) will collaborate.
 
 </section>
 <section id="slide-sec-">
-<h3 id="org620d1d7">Give permission</h3>
+<h3 id="orgf2eb93a">Give permission</h3>
 <p>
 The leader should go to their Github repo's settings, and add the
 collaborator(s) to their project.
@@ -679,7 +680,7 @@ collaborator(s) to their project.
 
 </section>
 <section id="slide-sec-">
-<h3 id="org7d4ef2e">Work on the same code</h3>
+<h3 id="org851f717">Work on the same code</h3>
 <p>
 The collaborator(s) now find the leader's Github repo and clone it:
 </p>
@@ -694,12 +695,12 @@ This automatically sets up a remote called "origin".
 
 </section>
 <section id="slide-sec-">
-<h3 id="org7632ae8">Make changes together</h3>
-<div class="outline-text-3" id="text-org7632ae8">
+<h3 id="orgcec26fe">Make changes together</h3>
+<div class="outline-text-3" id="text-orgcec26fe">
 </div>
 </section>
 <section id="slide-sec-">
-<h4 id="orga362d2b">Leader makes changes</h4>
+<h4 id="org32dffc8">Leader makes changes</h4>
 <p>
 LEADER
 </p>
@@ -715,7 +716,7 @@ Mountains In Wales
 
 </section>
 <section id="slide-sec-">
-<h4 id="orgdf14ee9">And commits</h4>
+<h4 id="org3df4b23">And commits</h4>
 <pre class="example">
 $ git add Wales.md
 $ git commit -m "Add Wales"
@@ -727,7 +728,7 @@ $ git commit -m "Add Wales"
 
 </section>
 <section id="slide-sec-">
-<h4 id="org2f69013">And the collaborator</h4>
+<h4 id="orgd4b81c1">And the collaborator</h4>
 <p>
 COLLABORATOR
 </p>
@@ -749,7 +750,7 @@ $ git commit -m "Add Scotland"
 
 </section>
 <section id="slide-sec-">
-<h4 id="org97297aa">One of you pushes&#x2026;</h4>
+<h4 id="orgaec4c09">One of you pushes&#x2026;</h4>
 <p>
 LEADER
 </p>
@@ -761,7 +762,7 @@ To git@github.com:iamleeg/github_example.git
 
 </section>
 <section id="slide-sec-">
-<h4 id="orge1bf77c">&#x2026;the other is rejected :(</h4>
+<h4 id="org0301939">&#x2026;the other is rejected :(</h4>
 <p>
 COLLABORATOR
 </p>
@@ -779,14 +780,14 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 </section>
 <section id="slide-sec-">
-<h4 id="org911ee9a">What happened?</h4>
+<h4 id="org9c9d3cf">What happened?</h4>
 <p>
 Git only lets you push when your repo is in sync with the remote (though you can "force push", on exception).
 </p>
 
 </section>
 <section id="slide-sec-">
-<h4 id="org46703c7">Pull to sync with the remote</h4>
+<h4 id="org2f5e52b">Pull to sync with the remote</h4>
 <p>
 COLLABORATOR
 </p>
@@ -803,7 +804,7 @@ From github.com:iamleeg/github_example
 
 </section>
 <section id="slide-sec-">
-<h4 id="org4e12418">NOW you can push</h4>
+<h4 id="orgae04d76">NOW you can push</h4>
 <p>
 COLLABORATOR
 </p>
@@ -821,12 +822,12 @@ And the leader has to pull, to get your changes.
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="orgbd38e11">Conflicts and Resolution</h2>
-<div class="outline-text-2" id="text-orgbd38e11">
+<h2 id="orgfac19d2">Conflicts and Resolution</h2>
+<div class="outline-text-2" id="text-orgfac19d2">
 </div>
 </section>
 <section id="slide-sec-">
-<h3 id="org7559302">Change a file.</h3>
+<h3 id="org5482725">Change a file.</h3>
 <p>
 LEADER
 </p>
@@ -851,7 +852,7 @@ To git@github.com:iamleeg/github_example.git
 
 </section>
 <section id="slide-sec-">
-<h3 id="org62003ae">Collaborator changes the same file</h3>
+<h3 id="org155cf1b">Collaborator changes the same file</h3>
 <p>
 COLLABORATOR
 </p>
@@ -877,7 +878,7 @@ To git@github.com:iamleeg/github_example.git
 
 </section>
 <section id="slide-sec-">
-<h3 id="org369f3b4">Collaborator pulls to merge upstream changes</h3>
+<h3 id="org76a9d10">Collaborator pulls to merge upstream changes</h3>
 <p>
 COLLABORATOR
 </p>
@@ -893,7 +894,7 @@ Recorded preimage for 'Wales.md'
 
 </section>
 <section id="slide-sec-">
-<h3 id="orgc46aea7">Git shows the problem</h3>
+<h3 id="org6445006">Git shows the problem</h3>
 <p>
 COLLABORATOR
 </p>
@@ -921,7 +922,7 @@ To fix the conflict, make the file make sense again, removing the conflict marke
 
 </section>
 <section id="slide-sec-">
-<h3 id="org230b820">Add, commit, and push</h3>
+<h3 id="orgac98b65">Add, commit, and push</h3>
 <p>
 COLLABORATOR
 </p>
@@ -936,26 +937,26 @@ Recorded resolution for 'Wales.md'.
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="orge12e009">Pull Requests</h2>
-<div class="outline-text-2" id="text-orge12e009">
+<h2 id="org2b3141d">Pull Requests</h2>
+<div class="outline-text-2" id="text-org2b3141d">
 </div>
 </section>
 <section id="slide-sec-">
-<h3 id="orgabcc482">Forks</h3>
+<h3 id="org549d64a">Forks</h3>
 <p>
 That example used one repository, which works when the collaborators are on the same team. To contribute to another project, <i>fork</i> it.
 </p>
 
 </section>
 <section id="slide-sec-">
-<h3 id="org597fb7d">What is a fork?</h3>
+<h3 id="org2bbc771">What is a fork?</h3>
 <p>
 Your own copy of the original repo.
 </p>
 
 </section>
 <section id="slide-sec-">
-<h3 id="org8650022">Pull request</h3>
+<h3 id="org4949305">Pull request</h3>
 <p>
 Make changes in your own fork. When you're ready, press the pull request button in Github.
 </p>
@@ -966,7 +967,7 @@ The owner of the original repo sees the pull request. They can review the code, 
 
 </section>
 <section id="slide-sec-">
-<h3 id="org8873499">Conflicts</h3>
+<h3 id="org3c6cd14">Conflicts</h3>
 <p>
 Good practice to resolve conflicts in the pull request, to reduce the work the upstream owner must do.
 </p>
@@ -974,7 +975,7 @@ Good practice to resolve conflicts in the pull request, to reduce the work the u
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="orgbe089b9">This presentation</h2>
+<h2 id="orgc162cb2">This presentation</h2>
 <p>
 &#x2026;is on Github!
 </p>

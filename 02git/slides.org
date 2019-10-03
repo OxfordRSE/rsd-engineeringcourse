@@ -92,6 +92,7 @@ menu. Use that.
 #+BEGIN_EXAMPLE
 $ git config --global user.name "Graham Lee"
 $ git config --global user.email "graham.lee@cs.ox.ac.uk"
+$ git config --global core.editor nano
 #+END_EXAMPLE
 
 *** Make a repository
