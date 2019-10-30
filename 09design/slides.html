@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Software Design</title>
+<meta name="author" content="(Graham Lee)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/serif.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Software Design</h1><h2 class="author">Graham Lee</h2>
+</section>
+
+<section>
+<section id="slide-orgc23dfd2">
+<h2 id="orgc23dfd2">Not User Interface design</h2>
+<p>
+That's important, and a massive field, but we aren't ready yet.
+</p>
+
+<p>
+We want&#x2026;
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org782d5e2">
+<h2 id="org782d5e2">Software Design</h2>
+<p>
+Planning the "blueprint" of a software system that can satisfy our requirements, within our constraints
+</p>
+
+</section>
+<section id="slide-orga1f75c4">
+<h3 id="orga1f75c4">How?</h3>
+<p>
+Where requirements are <span class="underline">what</span> the software does, design is <span class="underline">how</span>.
+</p>
+
+</section>
+<section id="slide-org1b4f1f2">
+<h3 id="org1b4f1f2">Or showing that that can't be done</h3>
+
+</section>
+</section>
+<section>
+<section id="slide-org3b386e6">
+<h2 id="org3b386e6">Embrace Change</h2>
+<p>
+Identify, isolate, and document, different parts of the software that change because different things about the software change
+</p>
+
+</section>
+<section id="slide-org0d52a1c">
+<h3 id="org0d52a1c">SPROUTS of change</h3>
+<ul>
+<li>Changed Situation</li>
+<li>Changed People</li>
+<li>Changed Requirements</li>
+<li>Changed Organisations</li>
+<li>Changed Understanding</li>
+<li>Changed Technologies</li>
+<li>Changed Society</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgfced979">
+<h2 id="orgfced979">High-level Design</h2>
+<p>
+Define components, and interactions between components.
+</p>
+
+<p>
+Convince stakeholders that requirements and constraints are satisfied. Identify and quantify outstanding risks.
+</p>
+
+</section>
+<section id="slide-org607e9db">
+<h3 id="org607e9db">Buy vs build</h3>
+<p>
+You don't have to construct every component! Open source, commercial products, software as a service&#x2026;
+</p>
+
+</section>
+<section id="slide-org5fcf082">
+<h3 id="org5fcf082">Validation techniques</h3>
+<p>
+Show, without building the whole system, that it <span class="underline">can</span> be built using your design.
+</p>
+
+<ul>
+<li>"Walking Skeleton": implement all of the architecture with no/fake functionality</li>
+
+<li>"Tracer Bullet": build a narrow but complete "slice" through the architecture, e.g. a single task to be carried out by a single user.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf3e9861">
+<h2 id="orgf3e9861">Detailed Design</h2>
+<p>
+Describe how a specific component will be implemented in code. Dealt with later, in Object-Oriented Design.
+</p>
+
+<p>
+Also file formats, data structures, communication protocols, &#x2026; the "arrows" can be more important than the "boxes".
+</p>
+
+</section>
+<section id="slide-org91e3f80">
+<h3 id="org91e3f80">Emergent Design</h3>
+<p>
+Developers often don't worry too much about detailed design upfront, and often get away with it.
+</p>
+
+<p>
+(They also often don't worry too much about high-level design upfront, and run into trouble.)
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org954e781">
+<h2 id="org954e781">Communicating Design</h2>
+<p>
+The thing is not to <span class="underline">have</span> a design, but to <span class="underline">share</span> the design. With:
+</p>
+
+<ul>
+<li>engineers</li>
+<li>stakeholders</li>
+<li>customers/potential customers</li>
+<li>operators/maintainers</li>
+
+</ul>
+
+</section>
+<section id="slide-org0171e9d">
+<h3 id="org0171e9d">Worth 1000 Words</h3>
+<p>
+Diagrams are often the best form of communication.
+</p>
+
+<ul>
+<li>Consider your audience.</li>
+<li>Highlight relevant information, exclude irrelevant information.</li>
+<li>Remember to document time, not just space.</li>
+<li>Keeping it up to date is critical</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org80f5442">
+<h2 id="org80f5442">C4 Model</h2>
+<p>
+Context
+Container
+Component
+Class
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org5d54924">
+<h2 id="org5d54924">Physical vs. Logical architecture</h2>
+<p>
+"What goes where" vs. "How the problem is solved"
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org2670774">
+<h2 id="org2670774">Meta-Architecture</h2>
+<p>
+You don't have to design from scratch! Borrow ideas from others:
+</p>
+
+<ul>
+<li>Architectural Patterns</li>
+<li>Reference Architectures</li>
+<li>Common "Tactics"</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

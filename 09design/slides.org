@@ -1,0 +1,105 @@
+#+OPTIONS: num:nil toc:nil timestamp:nil
+#+REVEAL_PLUGINS: (notes)
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+REVEAL_THEME: serif
+#+Title: Software Design
+#+Author: Graham Lee
+#+Email: graham.lee@cs.ox.ac.uk
+
+* Not User Interface design
+
+That's important, and a massive field, but we aren't ready yet.
+
+We want...
+
+* Software Design
+
+Planning the "blueprint" of a software system that can satisfy our requirements, within our constraints
+
+** How?
+
+Where requirements are _what_ the software does, design is _how_.
+
+** Or showing that that can't be done
+
+* Embrace Change
+
+Identify, isolate, and document, different parts of the software that change because different things about the software change
+
+** SPROUTS of change
+
+ - Changed Situation
+ - Changed People
+ - Changed Requirements
+ - Changed Organisations
+ - Changed Understanding
+ - Changed Technologies
+ - Changed Society
+
+* High-level Design
+
+Define components, and interactions between components.
+
+Convince stakeholders that requirements and constraints are satisfied. Identify and quantify outstanding risks.
+
+** Buy vs build
+
+You don't have to construct every component! Open source, commercial products, software as a service...
+
+** Validation techniques
+
+Show, without building the whole system, that it _can_ be built using your design.
+
+ - "Walking Skeleton": implement all of the architecture with no/fake functionality
+
+ - "Tracer Bullet": build a narrow but complete "slice" through the architecture, e.g. a single task to be carried out by a single user.
+
+* Detailed Design
+
+Describe how a specific component will be implemented in code. Dealt with later, in Object-Oriented Design.
+
+Also file formats, data structures, communication protocols, ... the "arrows" can be more important than the "boxes".
+
+** Emergent Design
+
+Developers often don't worry too much about detailed design upfront, and often get away with it.
+
+(They also often don't worry too much about high-level design upfront, and run into trouble.)
+
+* Communicating Design
+
+The thing is not to _have_ a design, but to _share_ the design. With:
+
+ - engineers
+ - stakeholders
+ - customers/potential customers
+ - operators/maintainers
+
+** Worth 1000 Words
+
+Diagrams are often the best form of communication.
+
+ - Consider your audience.
+ - Highlight relevant information, exclude irrelevant information.
+ - Remember to document time, not just space.
+ - Keeping it up to date is critical
+
+* C4 Model
+
+Context
+Container
+Component
+Class
+
+* Physical vs. Logical architecture
+
+"What goes where" vs. "How the problem is solved"
+
+* Meta-Architecture
+
+You don't have to design from scratch! Borrow ideas from others:
+
+ - Architectural Patterns
+ - Reference Architectures
+ - Common "Tactics"
+
