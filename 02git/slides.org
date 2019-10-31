@@ -1,7 +1,8 @@
 #+OPTIONS: num:nil toc:nil timestamp:nil
 #+REVEAL_PLUGINS: (notes)
-#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/reveal.js/3.0.0/
 #+REVEAL_THEME: serif
+#+REVEAL_EXTRA_CSS: https://raw.githubusercontent.com/OxRSE/rsd-engineeringcourse/master/presentation/custom.css
 #+Title: Version Control with git
 #+Author: Graham Lee
 #+Email: graham.lee@cs.ox.ac.uk

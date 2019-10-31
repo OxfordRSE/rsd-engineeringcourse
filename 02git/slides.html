@@ -7,10 +7,11 @@
 <style type="text/css">
 .underline { text-decoration: underline; }
 </style>
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
 
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/serif.css" id="theme"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/serif.css" id="theme"/>
 
+<link rel="stylesheet" href="https://raw.githubusercontent.com/OxRSE/rsd-engineeringcourse/master/presentation/custom.css"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -18,7 +19,7 @@
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        link.href = 'https://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
     }
 </script>
@@ -30,15 +31,15 @@
 </section>
 
 <section>
-<section id="slide-sec-">
-<h2 id="org499cdb2">Version control</h2>
+<section id="slide-orgbbf0283">
+<h2 id="orgbbf0283">Version control</h2>
 <p>
 What are we trying to achieve?
 </p>
 
 </section>
-<section id="slide-sec-">
-<h3 id="orgc0bc145">For one person</h3>
+<section id="slide-org025e355">
+<h3 id="org025e355">For one person</h3>
 <ul>
 <li>An unlimited undo stack</li>
 <li>With annotated history</li>
@@ -47,8 +48,8 @@ What are we trying to achieve?
 </ul>
 
 </section>
-<section id="slide-sec-">
-<h3 id="orgea163bc">How do I do that?</h3>
+<section id="slide-org3251d6c">
+<h3 id="org3251d6c">How do I do that?</h3>
 <ul>
 <li>edit</li>
 <li>commit</li>
@@ -60,8 +61,8 @@ What are we trying to achieve?
 </ul>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org7ebbf8c">For two or more people</h3>
+<section id="slide-orgd1ab67a">
+<h3 id="orgd1ab67a">For two or more people</h3>
 <ul>
 <li>A shared undo stack</li>
 <li>Common history</li>
@@ -70,8 +71,8 @@ What are we trying to achieve?
 </ul>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org5a6803f">How do we do that?</h3>
+<section id="slide-org4289870">
+<h3 id="org4289870">How do we do that?</h3>
 <p>
 Player 1:
 </p>
@@ -98,13 +99,13 @@ Player 2:
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="orgea7a42e">Git</h2>
-<div class="outline-text-2" id="text-orgea7a42e">
+<section id="slide-org165cc3a">
+<h2 id="org165cc3a">Git</h2>
+<div class="outline-text-2" id="text-org165cc3a">
 </div>
 </section>
-<section id="slide-sec-">
-<h3 id="org11c5dce">Git version control</h3>
+<section id="slide-org8456432">
+<h3 id="org8456432">Git version control</h3>
 <p>
 Git is a particular version control system. There are others.
 </p>
@@ -118,8 +119,8 @@ GitHub is not git, it is a social network based on git interactions.
 </p>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org505dc31">Workflow</h3>
+<section id="slide-orgbaa0897">
+<h3 id="orgbaa0897">Workflow</h3>
 <p>
 Git knows about three places where changes exist.
 </p>
@@ -146,8 +147,8 @@ you're committed.
 </aside>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgcd10ac6"></h4>
+<section id="slide-org3c34556">
+<h4 id="org3c34556"></h4>
 
 <div class="figure">
 <p><img src="./images/staging.png" alt="staging.png" />
@@ -157,13 +158,13 @@ you're committed.
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="org42feabe">Getting started</h2>
-<div class="outline-text-2" id="text-org42feabe">
+<section id="slide-orgff8f522">
+<h2 id="orgff8f522">Getting started</h2>
+<div class="outline-text-2" id="text-orgff8f522">
 </div>
 </section>
-<section id="slide-sec-">
-<h3 id="org1d0e39a">Walkthrough</h3>
+<section id="slide-org0c2ff9e">
+<h3 id="org0c2ff9e">Walkthrough</h3>
 <p>
 Hopefully, you've installed git.
 </p>
@@ -177,8 +178,8 @@ menu. Use that.
 </aside>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgccd8452">Configure git</h4>
+<section id="slide-org9887a6f">
+<h4 id="org9887a6f">Configure git</h4>
 <pre class="example">
 $ git config --global user.name "Graham Lee"
 $ git config --global user.email "graham.lee@cs.ox.ac.uk"
@@ -186,8 +187,8 @@ $ git config --global core.editor nano
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org7826b9c">Make a repository</h4>
+<section id="slide-org5a2a93e">
+<h4 id="org5a2a93e">Make a repository</h4>
 <pre class="example">
 $ mkdir learning_git
 $ cd learning_git
@@ -204,8 +205,8 @@ You may want to do this somewhere specific, like Documents.
 </aside>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgbc96f15">Check that it worked</h4>
+<section id="slide-org1715411">
+<h4 id="org1715411">Check that it worked</h4>
 <pre class="example">
 $ git status
 On branch master
@@ -216,13 +217,13 @@ nothing to commit (create/copy files and use "git add" to track)
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org98a2ffb">A first file</h3>
-<div class="outline-text-3" id="text-org98a2ffb">
+<section id="slide-org13ffb8f">
+<h3 id="org13ffb8f">A first file</h3>
+<div class="outline-text-3" id="text-org13ffb8f">
 </div>
 </section>
-<section id="slide-sec-">
-<h4 id="orgb2e0942">Create the file</h4>
+<section id="slide-orga30b8c3">
+<h4 id="orga30b8c3">Create the file</h4>
 <pre class="example">
 $ nano index.md
 
@@ -233,8 +234,8 @@ But has some tall hills, and maybe a mountain or two.
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgc908ac4">It's not in git!</h4>
+<section id="slide-orgb3c1a05">
+<h4 id="orgb3c1a05">It's not in git!</h4>
 <pre class="example">
 $ git status
 On branch master
@@ -250,8 +251,8 @@ nothing added to commit but untracked files present (use "git add" to track)
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org7213a8e">Git told us twice to use "git add"</h4>
+<section id="slide-orgdbb8c0d">
+<h4 id="orgdbb8c0d">Git told us twice to use "git add"</h4>
 <p>
 So let's do that. This <i>stages</i> the file.
 </p>
@@ -261,8 +262,8 @@ $ git add index.md
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgaf6b642">And now commit the staged changes</h4>
+<section id="slide-orgfa5b71d">
+<h4 id="orgfa5b71d">And now commit the staged changes</h4>
 <pre class="example">
 $ git commit -m "First commit of discourse on UK topography"
 [master (root-commit) 20ad49c] First commit of discourse on UK topography
@@ -271,8 +272,8 @@ $ git commit -m "First commit of discourse on UK topography"
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgdeb0c9d">Confirm that the change is there&#x2026;</h4>
+<section id="slide-org6cf34c1">
+<h4 id="org6cf34c1">Confirm that the change is there&#x2026;</h4>
 <pre class="example">
 $ git log
 commit 20ad49cfd1a8a359d30f433dd7263fb25c43c400 (HEAD -&gt; master)
@@ -291,8 +292,8 @@ identifies this change. When git needs you to refer to a commit, you can use thi
 </aside>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orga375ef3">&#x2026;and there are no more outstanding changes</h4>
+<section id="slide-org227ffd5">
+<h4 id="org227ffd5">&#x2026;and there are no more outstanding changes</h4>
 <pre class="example">
 $ git status
 On branch master
@@ -300,8 +301,8 @@ nothing to commit, working tree clean
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgc29ed5b">Make another change</h4>
+<section id="slide-org53effa6">
+<h4 id="org53effa6">Make another change</h4>
 <pre class="example">
 $ nano index.md
 
@@ -315,8 +316,8 @@ mountain in the world.
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org07c2233">git can see the change&#x2026;</h4>
+<section id="slide-org5ca4b86">
+<h4 id="org5ca4b86">git can see the change&#x2026;</h4>
 <pre class="example">
 $ git status
 On branch master
@@ -337,8 +338,8 @@ Git wouldn't commit our change yet, because we haven't staged it.
 </aside>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org77a6cb6">&#x2026;and can show us the differences</h4>
+<section id="slide-org8c0f2a4">
+<h4 id="org8c0f2a4">&#x2026;and can show us the differences</h4>
 <pre class="example">
 $ git diff
 diff --git a/index.md b/index.md
@@ -356,8 +357,8 @@ index 9f69649..699e698 100644
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgbe344fd">Add all updated files, and commit</h4>
+<section id="slide-orgf550dfe">
+<h4 id="orgf550dfe">Add all updated files, and commit</h4>
 <pre class="example">
 $ git add --update
 
@@ -371,8 +372,8 @@ d250add (HEAD -&gt; master) Add a lie about a mountain.
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org5fead8f">Another edit</h4>
+<section id="slide-org149f081">
+<h4 id="org149f081">Another edit</h4>
 <p>
 We'll come back to that mistake later, but for now carry on regardless.
 </p>
@@ -394,8 +395,8 @@ index 699e698..6bc639e 100644
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org4fdeaef">Another edit</h4>
+<section id="slide-orgc32afb7">
+<h4 id="orgc32afb7">Another edit</h4>
 <pre class="example">
 $ git commit -am "Change title"
 [master 43db675] Change title
@@ -410,13 +411,13 @@ followed by "git commit".
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="org255a038">Correcting mistakes</h2>
-<div class="outline-text-2" id="text-org255a038">
+<section id="slide-org6a50fcc">
+<h2 id="org6a50fcc">Correcting mistakes</h2>
+<div class="outline-text-2" id="text-org6a50fcc">
 </div>
 </section>
-<section id="slide-sec-">
-<h3 id="org6cd1580">Review history</h3>
+<section id="slide-org54895e2">
+<h3 id="org54895e2">Review history</h3>
 <pre class="example">
 $ git log --oneline
 43db675 (HEAD -&gt; master) Change title
@@ -430,8 +431,8 @@ about it?
 </p>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org3fba1a5">Reverting the commit</h3>
+<section id="slide-org7e971ca">
+<h3 id="org7e971ca">Reverting the commit</h3>
 <pre class="example">
 $ git revert HEAD^
 [master 4a08366] Revert "Add a lie about a mountain."
@@ -445,8 +446,8 @@ d250add Add a lie about a mountain.
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h3 id="orgac62fab">Rewriting history</h3>
+<section id="slide-org21cfab5">
+<h3 id="org21cfab5">Rewriting history</h3>
 <p>
 The revert added a new commit, "undoing" our mistake. So both the
 original commit and the undo appear in the history. Can we remove the
@@ -454,8 +455,8 @@ mistake entirely, pretending we never made it?
 </p>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org6a59921">Rewriting history</h4>
+<section id="slide-orgca0757e">
+<h4 id="orgca0757e">Rewriting history</h4>
 <pre class="example">
 $ nano index.md
 
@@ -472,8 +473,8 @@ index 16e9f68..fe8cbca 100644
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgbce12e8">Rewriting history</h4>
+<section id="slide-org2c1d6e3">
+<h4 id="org2c1d6e3">Rewriting history</h4>
 <pre class="example">
 $ git commit -am "Change spelling"
 [master 92754c8] Change spelling
@@ -488,8 +489,8 @@ d250add Add a lie about a mountain.
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgc7ef673">Rewriting history</h4>
+<section id="slide-org9440814">
+<h4 id="org9440814">Rewriting history</h4>
 <pre class="example">
 $ git reset HEAD^
 Unstaged changes after reset:
@@ -505,13 +506,13 @@ d250add Add a lie about a mountain.
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="org3652aa7">Publishing on Github</h2>
-<div class="outline-text-2" id="text-org3652aa7">
+<section id="slide-orge6e95e7">
+<h2 id="orge6e95e7">Publishing on Github</h2>
+<div class="outline-text-2" id="text-orge6e95e7">
 </div>
 </section>
-<section id="slide-sec-">
-<h3 id="org093af0f">What is GitHub?</h3>
+<section id="slide-org1462be3">
+<h3 id="org1462be3">What is GitHub?</h3>
 <ul>
 <li>A cloud store for git repositories</li>
 <li>A social network for programmers</li>
@@ -519,8 +520,8 @@ d250add Add a lie about a mountain.
 </ul>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org60d7088">Getting Started</h3>
+<section id="slide-org50e0493">
+<h3 id="org50e0493">Getting Started</h3>
 <ul>
 <li>Create an account (if you haven't already)</li>
 <li>(Optionally, but recommended) set up an SSH key</li>
@@ -529,8 +530,8 @@ d250add Add a lie about a mountain.
 </ul>
 
 </section>
-<section id="slide-sec-">
-<h3 id="orgd28c6d4">Add a Remote</h3>
+<section id="slide-org54b4b4b">
+<h3 id="org54b4b4b">Add a Remote</h3>
 <p>
 Your git repo needs to know about the one on github. Git calls other repositories "remotes".
 </p>
@@ -540,8 +541,8 @@ $ git remote add origin https://github.com/iamleeg/github-example.git
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org69a3e3f">Sharing with git</h3>
+<section id="slide-org9145f7b">
+<h3 id="org9145f7b">Sharing with git</h3>
 <p>
 <i>push</i> and <i>pull</i> work with commits, not local files or staged changes.
 </p>
@@ -553,8 +554,8 @@ $ git remote add origin https://github.com/iamleeg/github-example.git
 </div>
 
 </section>
-<section id="slide-sec-">
-<h3 id="orgebc774c">Your first push!</h3>
+<section id="slide-orgb2ca0f3">
+<h3 id="orgb2ca0f3">Your first push!</h3>
 <p>
 Publish your work so far:
 </p>
@@ -573,8 +574,8 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h3 id="orgdbfc665">Add another file</h3>
+<section id="slide-org9deae5c">
+<h3 id="org9deae5c">Add another file</h3>
 <pre class="example">
 $ nano lakeland.md
 
@@ -585,8 +586,8 @@ Cumbria has some pretty hills, and lakes too.
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orga43f508">Git studiously ignores it&#x2026;</h4>
+<section id="slide-org996673a">
+<h4 id="org996673a">Git studiously ignores it&#x2026;</h4>
 <pre class="example">
 $ git status
 On branch master
@@ -601,8 +602,8 @@ nothing added to commit but untracked files present (use "git add" to track)
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org1eeff73">&#x2026;even if you try to commit&#x2026;</h4>
+<section id="slide-org20f3059">
+<h4 id="org20f3059">&#x2026;even if you try to commit&#x2026;</h4>
 <pre class="example">
 $ git commit -am 'Add Lakeland'
 On branch master
@@ -615,8 +616,8 @@ nothing added to commit but untracked files present
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org0343594">&#x2026;because you need to explicitly add new files.</h4>
+<section id="slide-org618be53">
+<h4 id="org618be53">&#x2026;because you need to explicitly add new files.</h4>
 <pre class="example">
 $ git add lakeland.md
 $ git commit -am 'Add Lakeland'
@@ -626,8 +627,8 @@ $ git commit -am 'Add Lakeland'
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org38ee579">Push this change to Github</h4>
+<section id="slide-org8198077">
+<h4 id="org8198077">Push this change to Github</h4>
 <aside class="notes">
 <p>
 Important to realise that git doesn't stay in sync.
@@ -647,8 +648,8 @@ To github.com:iamleeg/github_example.git
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h3 id="orgda03fd4">More on multiple files</h3>
+<section id="slide-orgbaf5531">
+<h3 id="orgbaf5531">More on multiple files</h3>
 <ul>
 <li>Stage/commit different files separately, or together</li>
 <li>Or even different changes in the same file!</li>
@@ -658,29 +659,29 @@ To github.com:iamleeg/github_example.git
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="orgd8e7801">Collaborating with Github</h2>
-<div class="outline-text-2" id="text-orgd8e7801">
+<section id="slide-orgf22915a">
+<h2 id="orgf22915a">Collaborating with Github</h2>
+<div class="outline-text-2" id="text-orgf22915a">
 </div>
 </section>
-<section id="slide-sec-">
-<h3 id="orgb41c175">You need a team</h3>
+<section id="slide-org65ed0ad">
+<h3 id="org65ed0ad">You need a team</h3>
 <p>
 Form pairs. If there are an odd number of you, form pairs and a trio.
 Designate one person as the "leader", the other(s) will collaborate.
 </p>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org0e7a8be">Give permission</h3>
+<section id="slide-orga4c3f15">
+<h3 id="orga4c3f15">Give permission</h3>
 <p>
 The leader should go to their Github repo's settings, and add the
 collaborator(s) to their project.
 </p>
 
 </section>
-<section id="slide-sec-">
-<h3 id="orge74490f">Work on the same code</h3>
+<section id="slide-org177b3df">
+<h3 id="org177b3df">Work on the same code</h3>
 <p>
 The collaborator(s) now find the leader's Github repo and clone it:
 </p>
@@ -696,13 +697,13 @@ This automatically sets up a remote called "origin".
 </p>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org7aaa1da">Make changes together</h3>
-<div class="outline-text-3" id="text-org7aaa1da">
+<section id="slide-org811e491">
+<h3 id="org811e491">Make changes together</h3>
+<div class="outline-text-3" id="text-org811e491">
 </div>
 </section>
-<section id="slide-sec-">
-<h4 id="org85b3f97">Leader makes changes</h4>
+<section id="slide-orgc8484ee">
+<h4 id="orgc8484ee">Leader makes changes</h4>
 <p>
 LEADER
 </p>
@@ -717,8 +718,8 @@ Mountains In Wales
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org11e7c21">And commits</h4>
+<section id="slide-org87b9f3a">
+<h4 id="org87b9f3a">And commits</h4>
 <pre class="example">
 $ git add Wales.md
 $ git commit -m "Add Wales"
@@ -729,8 +730,8 @@ $ git commit -m "Add Wales"
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org8ce853d">And the collaborator</h4>
+<section id="slide-org230e719">
+<h4 id="org230e719">And the collaborator</h4>
 <p>
 COLLABORATOR
 </p>
@@ -751,8 +752,8 @@ $ git commit -m "Add Scotland"
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org77619f7">One of you pushes&#x2026;</h4>
+<section id="slide-org343c6e9">
+<h4 id="org343c6e9">One of you pushes&#x2026;</h4>
 <p>
 LEADER
 </p>
@@ -763,8 +764,8 @@ To https://github.com/iamleeg/github_example.git
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orge430c6e">&#x2026;the other is rejected :(</h4>
+<section id="slide-org8be58a1">
+<h4 id="org8be58a1">&#x2026;the other is rejected :(</h4>
 <p>
 COLLABORATOR
 </p>
@@ -781,15 +782,15 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgb04a648">What happened?</h4>
+<section id="slide-org3c0582e">
+<h4 id="org3c0582e">What happened?</h4>
 <p>
 Git only lets you push when your repo is in sync with the remote (though you can "force push", on exception).
 </p>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org5f32ba9">Pull to sync with the remote</h4>
+<section id="slide-orgde822be">
+<h4 id="orgde822be">Pull to sync with the remote</h4>
 <p>
 COLLABORATOR
 </p>
@@ -805,8 +806,8 @@ From github.com:iamleeg/github_example
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org74043ac">NOW you can push</h4>
+<section id="slide-org65151b1">
+<h4 id="org65151b1">NOW you can push</h4>
 <p>
 COLLABORATOR
 </p>
@@ -823,13 +824,13 @@ And the leader has to pull, to get your changes.
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="org1a50cac">Conflicts and Resolution</h2>
-<div class="outline-text-2" id="text-org1a50cac">
+<section id="slide-org5a6abb3">
+<h2 id="org5a6abb3">Conflicts and Resolution</h2>
+<div class="outline-text-2" id="text-org5a6abb3">
 </div>
 </section>
-<section id="slide-sec-">
-<h3 id="org31de4f8">Change a file.</h3>
+<section id="slide-org8f94260">
+<h3 id="org8f94260">Change a file.</h3>
 <p>
 LEADER
 </p>
@@ -853,8 +854,8 @@ To https://github.com/iamleeg/github_example.git
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org473abb0">Collaborator changes the same file</h3>
+<section id="slide-orgc74ec23">
+<h3 id="orgc74ec23">Collaborator changes the same file</h3>
 <p>
 COLLABORATOR
 </p>
@@ -879,8 +880,8 @@ To https://github.com/iamleeg/github_example.git
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org21c95c3">Collaborator pulls to merge upstream changes</h3>
+<section id="slide-orgabedb14">
+<h3 id="orgabedb14">Collaborator pulls to merge upstream changes</h3>
 <p>
 COLLABORATOR
 </p>
@@ -895,8 +896,8 @@ Recorded preimage for 'Wales.md'
 </pre>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org2573af8">Git shows the problem</h3>
+<section id="slide-org778aeb6">
+<h3 id="org778aeb6">Git shows the problem</h3>
 <p>
 COLLABORATOR
 </p>
@@ -923,8 +924,8 @@ To fix the conflict, make the file make sense again, removing the conflict marke
 </aside>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org496f173">Add, commit, and push</h3>
+<section id="slide-orgb6c473b">
+<h3 id="orgb6c473b">Add, commit, and push</h3>
 <p>
 COLLABORATOR
 </p>
@@ -938,27 +939,27 @@ Recorded resolution for 'Wales.md'.
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="orga50b978">Pull Requests</h2>
-<div class="outline-text-2" id="text-orga50b978">
+<section id="slide-org54f6e1f">
+<h2 id="org54f6e1f">Pull Requests</h2>
+<div class="outline-text-2" id="text-org54f6e1f">
 </div>
 </section>
-<section id="slide-sec-">
-<h3 id="org37e6de2">Forks</h3>
+<section id="slide-orged3654e">
+<h3 id="orged3654e">Forks</h3>
 <p>
 That example used one repository, which works when the collaborators are on the same team. To contribute to another project, <i>fork</i> it.
 </p>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org278fc40">What is a fork?</h3>
+<section id="slide-orgf614afd">
+<h3 id="orgf614afd">What is a fork?</h3>
 <p>
 Your own copy of the original repo.
 </p>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org9d3b3db">Pull request</h3>
+<section id="slide-orgbcbf15b">
+<h3 id="orgbcbf15b">Pull request</h3>
 <p>
 Make changes in your own fork. When you're ready, press the pull request button in Github.
 </p>
@@ -968,16 +969,16 @@ The owner of the original repo sees the pull request. They can review the code, 
 </p>
 
 </section>
-<section id="slide-sec-">
-<h3 id="org532c409">Conflicts</h3>
+<section id="slide-org1a169ac">
+<h3 id="org1a169ac">Conflicts</h3>
 <p>
 Good practice to resolve conflicts in the pull request, to reduce the work the upstream owner must do.
 </p>
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="orgef773ee">This presentation</h2>
+<section id="slide-orgcb4c0a1">
+<h2 id="orgcb4c0a1">This presentation</h2>
 <p>
 &#x2026;is on Github!
 </p>
@@ -989,26 +990,13 @@ Good practice to resolve conflicts in the pull request, to reduce the work the u
 </section>
 </div>
 </div>
-<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
-<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
 
 <script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
-
-controls: true,
-progress: true,
-history: false,
-center: true,
-slideNumber: 'c',
-rollingLinks: false,
-keyboard: true,
-overview: true,
-
-theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-transitionSpeed: 'default',
 multiplex: {
     secret: '', // null if client
     id: '', // id, obtained from socket.io server
@@ -1017,7 +1005,7 @@ multiplex: {
 
 // Optional libraries used to extend on reveal.js
 dependencies: [
- { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
 });
 </script>
 </body>
