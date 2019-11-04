@@ -255,116 +255,31 @@ d250add (HEAD -> master) Add a lie about a mountain.
 20ad49c First commit of discourse on UK topography
 #+END_EXAMPLE
 
-*** Another edit
+*** Oops!
 
-We'll come back to that mistake later, but for now carry on regardless.
-
-#+BEGIN_EXAMPLE
-$ nano index.md
-
-$ git diff
-diff --git a/index.md b/index.md
-index 699e698..6bc639e 100644
---- a/index.md
-+++ b/index.md
-@@ -1,4 +1,4 @@
--Mountains in the UK   
-+Mountains and Hills in the UK   
- ===================   
- England is not very mountainous.   
- But has some tall hills, and maybe a mountain or two.
-#+END_EXAMPLE
-
-*** Another edit
-
-#+BEGIN_EXAMPLE
-$ git commit -am "Change title"
-[master 43db675] Change title
- 1 file changed, 1 insertion(+), 1 deletion(-)
-#+END_EXAMPLE
-
-The -a option to git commit is the same as doing "git add --update"
-followed by "git commit".
+There was a mistake there. As git is "an unlimited undo stack",
+we'll be able to fix that.
 
 * Correcting mistakes
 
-** Review history
+Git gives us multiple tools for fixing our problems. We can:
 
-#+BEGIN_EXAMPLE
-$ git log --oneline
-43db675 (HEAD -> master) Change title
-d250add Add a lie about a mountain.
-20ad49c First commit of discourse on UK topography
-#+END_EXAMPLE
+** Commit a fixed version
 
-That second commit, the one before HEAD, was a mistake. What can we do
-about it?
+Change the file, add it, commit it.
+This is often easy to do, and to understand.
 
-** Reverting the commit
+** Revert a commit
 
-#+BEGIN_EXAMPLE
-$ git revert HEAD^
-[master 4a08366] Revert "Add a lie about a mountain."
- 1 file changed, 4 deletions(-)
+Add a new commit that "undoes" a previous commit.
+Easiest if you know that a change shouldn't have been made.
 
-$ git log
-4a08366 (HEAD -> master) Revert "Add a lie about a mountain."
-43db675 Change title
-d250add Add a lie about a mountain.
-20ad49c First commit of discourse on UK topography
-#+END_EXAMPLE
+** Reset your repository
 
-** Rewriting history
+You can tell git that any commit represents the "current state".
+Later commits will just disappear. This rewrites history.
 
-The revert added a new commit, "undoing" our mistake. So both the
-original commit and the undo appear in the history. Can we remove the
-mistake entirely, pretending we never made it?
-
-*** Rewriting history
-
-#+BEGIN_EXAMPLE
-$ nano index.md
-
-$ git diff
-index 16e9f68..fe8cbca 100644
---- a/index.md
-+++ b/index.md
-@@ -1,4 +1,4 @@
- Mountains and Hills in the UK   
- ===================   
--England is not very mountainous.   
-+Engerland is not very mountainous.   
- But has some tall hills, and maybe a mountain or two.
-#+END_EXAMPLE
-
-*** Rewriting history
-
-#+BEGIN_EXAMPLE
-$ git commit -am "Change spelling"
-[master 92754c8] Change spelling
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-$ git log --oneline
-97254c8 (HEAD -> master) Change spelling
-4a08366 Revert "Add a lie about a mountain."
-43db675 Change title
-d250add Add a lie about a mountain.
-20ad49c First commit of discourse on UK topography
-#+END_EXAMPLE
-
-*** Rewriting history
-
-#+BEGIN_EXAMPLE
-$ git reset HEAD^
-Unstaged changes after reset:
-M	index.md
-
-$ git log --oneline
-4a08366 (HEAD -> master) Revert "Add a lie about a mountain."
-43db675 Change title
-d250add Add a lie about a mountain.
-20ad49c First commit of discourse on UK topography
-#+END_EXAMPLE
+On shared projects, this is considered bad form.
 
 * Publishing on Github
 
@@ -410,309 +325,55 @@ To github.com:iamleeg/github_example.git
 Branch 'master' set up to track remote branch 'master' from 'origin'.
 #+END_EXAMPLE
 
-** Add another file
-
-#+BEGIN_EXAMPLE
-$ nano lakeland.md
-
-Lakeland
-========
-
-Cumbria has some pretty hills, and lakes too.
-#+END_EXAMPLE
-
-*** Git studiously ignores it...
-
-#+BEGIN_EXAMPLE
-$ git status
-On branch master
-Your branch is up-to-date with 'origin/master'.
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-
-	lakeland.md
-
-nothing added to commit but untracked files present (use "git add" to track)
-#+END_EXAMPLE
-
-*** ...even if you try to commit...
-
-#+BEGIN_EXAMPLE
-$ git commit -am 'Add Lakeland'
-On branch master
-Your branch is up-to-date with 'origin/master'.
-
-Untracked files:
-	lakeland.md
-
-nothing added to commit but untracked files present
-#+END_EXAMPLE
-
-*** ...because you need to explicitly add new files.
-
-#+BEGIN_EXAMPLE
-$ git add lakeland.md
-$ git commit -am 'Add Lakeland'
-[master 7cdcdb1] Add Lakeland
- 1 file changed, 5 insertions(+)
- create mode 100644 lakeland.md
-#+END_EXAMPLE
-
-*** Push this change to Github
-
-#+BEGIN_NOTES
-Important to realise that git doesn't stay in sync.
-#+END_NOTES
-
-#+BEGIN_EXAMPLE
-$ git push
-Counting objects: 3, done.
-Delta compression using up to 12 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 338 bytes | 338.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To github.com:iamleeg/github_example.git
-   33941ba..7cdcdb1  master -> master
-#+END_EXAMPLE
-
-** More on multiple files
-
-- Stage/commit different files separately, or together
-- Or even different changes in the same file!
-
 * Collaborating with Github
 
-** You need a team
+** You can form a team
 
-Form pairs. If there are an odd number of you, form pairs and a trio.
-Designate one person as the "leader", the other(s) will collaborate.
+The owner of a repository in Github can add other people as collaborators through the repository's settings page.
 
-** Give permission
+** ...or not.
 
-The leader should go to their Github repo's settings, and add the
-collaborator(s) to their project.
+If you can see a repository on Github, you can "fork" it to create your own copy.
 
-** Work on the same code
-
-The collaborator(s) now find the leader's Github repo and clone it:
-
-#+BEGIN_EXAMPLE
-$ cd ..
-$ git clone https://github.com/leader_name/github_example.git leader_repo
-$ cd leader_repo
-#+END_EXAMPLE
-
-This automatically sets up a remote called "origin".
-
-** Make changes together
-
-*** Leader makes changes
-
-LEADER
-
-#+BEGIN_EXAMPLE
-$ nano Wales.md
-
-Mountains In Wales
-==================
-- Tryfan
-- Yr Wyddfa
-#+END_EXAMPLE
-
-*** And commits
-#+BEGIN_EXAMPLE
-$ git add Wales.md
-$ git commit -m "Add Wales"
-
-[master d7d7243] Add Wales
- 1 file changed, 5 insertions(+)
- create mode 100644 Wales.md
-#+END_EXAMPLE
-
-*** And the collaborator
-
-COLLABORATOR
-#+BEGIN_EXAMPLE
-$ nano Scotland.md
-
-Mountains In Scotland
-==================
-
-- Ben Eighe
-- Cairngorm
-
-$ git add Scotland.md
-$ git commit -m "Add Scotland"
-[master aed6a4d] Add Scotland
- 1 file changed, 5 insertions(+)
- create mode 100644 Scotland.md
-#+END_EXAMPLE
-
-*** One of you pushes...
-
-LEADER
-#+BEGIN_EXAMPLE
-$ git push
-To https://github.com/iamleeg/github_example.git
-   79b1285..aed6a4d  master -> master
-#+END_EXAMPLE
-
-*** ...the other is rejected :(
-
-COLLABORATOR
-#+BEGIN_EXAMPLE
-$ git push
-To https://github.com/iamleeg/github_example.git
- ! [rejected]        master -> master (fetch first)
-error: failed to push some refs to 'git@github.com:iamleeg/github_example.git'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-#+END_EXAMPLE
-
-*** What happened?
-
-Git only lets you push when your repo is in sync with the remote (though you can "force push", on exception).
-
-*** Pull to sync with the remote
-
-COLLABORATOR
-#+BEGIN_EXAMPLE
-$ git pull
-Merge made by the 'recursive' strategy.
- Scotland.md | 5 +++++
- 1 file changed, 5 insertions(+)
- create mode 100644 Scotland.md
-
-From github.com:iamleeg/github_example
-   79b1285..aed6a4d  master     -> origin/master
-#+END_EXAMPLE
-
-*** NOW you can push
-
-COLLABORATOR
-#+BEGIN_EXAMPLE
-$ git push
-To https://github.com/iamleeg/github_example.git
-   aed6a4d..4bc25e9  master -> master
-#+END_EXAMPLE
-
-And the leader has to pull, to get your changes.
-
-* Conflicts and Resolution
-
-** Change a file.
-
-LEADER
-#+BEGIN_EXAMPLE
-$ nano Wales.md
-Mountains In Wales
-==================
-
-- Pen y Fan
-- Tryfan
-- Snowdon
-- Fan y Big
-
-$ git commit -am "Add another Beacon"
-$ git push
-[master 3c4a02f] Add another Beacon
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-To https://github.com/iamleeg/github_example.git
-   54a5484..3c4a02f  master -> master
-#+END_EXAMPLE
-
-** Collaborator changes the same file
-
-COLLABORATOR
-#+BEGIN_EXAMPLE
-$ nano Wales.md
-Mountains In Wales
-==================
-
-- Pen y Fan
-- Tryfan
-- Snowdon
-- Glyder Fawr
-
-$ git commit -m 'Add Glyder'
-$ git push
-[master a5f66ac] Add Glyder
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-To https://github.com/iamleeg/github_example.git
- ! [rejected]        master -> master (fetch first)
-...
-#+END_EXAMPLE
-
-** Collaborator pulls to merge upstream changes
-
-COLLABORATOR
-#+BEGIN_EXAMPLE
-$ git pull
-CONFLICT (content): Merge conflict in Wales.md
-Automatic merge failed; fix conflicts and then commit the result.
-
-From github.com:iamleeg/github_example
-   54a5484..3c4a02f  master     -> origin/master
-Recorded preimage for 'Wales.md'
-#+END_EXAMPLE
-
-** Git shows the problem
-
-COLLABORATOR
-#+BEGIN_EXAMPLE
-$ nano index.md
-Mountains In Wales
-==================
-
-- Pen y Fan
-- Tryfan
-- Snowdon
-<<<<<<< HEAD
-- Glyder Fawr
-=======
-- Fan y Big
->>>>>>> 3c4a02fdbaaa1e2a2af2bf62f9e08ac5ded2b374
-#+END_EXAMPLE
-
-#+BEGIN_NOTES
-To fix the conflict, make the file make sense again, removing the conflict markers. What "makes sense" depends on your problem, but for source code, making it compile and work is a good baseline.
-#+END_NOTES
-
-** Add, commit, and push
-
-COLLABORATOR
-#+BEGIN_EXAMPLE
-$ git commit -am 'Fix merge conflict in Wales.md'
-[master 5f73fff] Fix merge conflict in Wales.md
-
-Recorded resolution for 'Wales.md'.
-#+END_EXAMPLE
+You're allowed to work in the fork. Later, you can share changes "upstream" to the original repository's owner.
 
 * Pull Requests
-
-** Forks
-
-That example used one repository, which works when the collaborators are on the same team. To contribute to another project, /fork/ it.
-
-** What is a fork?
-
-Your own copy of the original repo.
-
-** Pull request
 
 Make changes in your own fork. When you're ready, press the pull request button in Github.
 
 The owner of the original repo sees the pull request. They can review the code, suggest changes, accept or reject the pull request.
 
-** Conflicts
+* Conflicts
+
+A conflict happens when two changes cannot be merged automatically by the computer.
+
+** Example conflict
+
+I have this shopping list:
+
+ - Beans
+ - Eggs
+
+** I make a change:
+
+ - Beans
+ - Bacon
+ - Eggs
+
+** My housemate does too:
+
+ - Beans
+ - Tofu
+ - Eggs
+
+** Fix that
+
+Should my change go in? Their change? Both changes? In which order?
+
+There's no way to know without understanding our problem.
 
 Good practice to resolve conflicts in the pull request, to reduce the work the upstream owner must do.
+
 * This presentation
 
 ...is on Github!
