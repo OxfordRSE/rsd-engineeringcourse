@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>03Packaging slides</title>
+<title>03argparse slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13242,75 +13242,40 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Packaging">Packaging<a class="anchor-link" href="#Packaging">&#182;</a></h2>
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Once we've made a working program, we'd like to be able to share it with others.</p>
-<p>A good cross-platform build tool is the most important thing: you can always
-have collaborators build from source.</p>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Distribution-tools">Distribution tools<a class="anchor-link" href="#Distribution-tools">&#182;</a></h3>
+<h2 id="Argparse">Argparse<a class="anchor-link" href="#Argparse">&#182;</a></h2>
 </div>
 </div>
 </div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Distribution tools allow one to obtain a working copy of someone else's package.</p>
-<ul>
-<li><p>Language-specific tools:</p>
-<ul>
-<li>python: PyPI,</li>
-<li>ruby: Ruby Gems, </li>
-<li>perl: CPAN,</li>
-<li>R: CRAN</li>
-</ul>
-</li>
-<li><p>Platform specific packagers e.g.:</p>
-<ul>
-<li><code>brew</code> for MacOS, </li>
-<li><code>apt</code>/<code>yum</code> for Linux or </li>
-<li><a href="https://chocolatey.org/"><code>choco</code></a> for Windows.</li>
-</ul>
-</li>
-</ul>
+<p>This is the standard library for building programs with a command-line interface. The reason for doing so is to make a program more reusable by letting users tell it the context they're using it in. Here's the argparse <a href="https://docs.python.org/3/howto/argparse.html">official tutorial</a>.</p>
 
 </div>
 </div>
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Laying-out-a-project">Laying out a project<a class="anchor-link" href="#Laying-out-a-project">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>When planning to package a project for distribution, defining a suitable
-project layout is essential.</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>%%bash
-tree --charset ascii greetings -I <span class="s2">&quot;doc|build|Greetings.egg-info|dist|*.pyc&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> greeter.py
+<span class="ch">#!/usr/bin/env python</span>
+<span class="kn">from</span> <span class="nn">argparse</span> <span class="k">import</span> <span class="n">ArgumentParser</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Generate appropriate greetings&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--title&#39;</span><span class="p">,</span> <span class="s1">&#39;-t&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--polite&#39;</span><span class="p">,</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;personal&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;family&#39;</span><span class="p">)</span>
+    <span class="n">arguments</span><span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    
+    <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;How do you do, &quot;</span> <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">polite</span> <span class="k">else</span> <span class="s2">&quot;Hey, &quot;</span>
+    <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
+        <span class="n">greeting</span> <span class="o">+=</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{arguments.title}</span><span class="s2"> &quot;</span>
+    <span class="n">greeting</span> <span class="o">+=</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{arguments.personal}</span><span class="s2"> </span><span class="si">{arguments.family}</span><span class="s2">.&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13327,25 +13292,7 @@ tree --charset ascii greetings -I <span class="s2">&quot;doc|build|Greetings.egg
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>greetings
-|-- greetings
-|   |-- command.py
-|   |-- greeter.py
-|   |-- __init__.py
-|   `-- test
-|       |-- fixtures
-|       |   `-- samples.yaml
-|       |-- __init__.py
-|       `-- test_greeter.py
-|-- CITATION.md
-|-- conf.py
-|-- index.rst
-|-- LICENSE.md
-|-- README.md
-|-- scripts
-`-- setup.py
-
-6 directories, 12 files
+<pre>Writing greeter.py
 </pre>
 </div>
 </div>
@@ -13353,402 +13300,44 @@ tree --charset ascii greetings -I <span class="s2">&quot;doc|build|Greetings.egg
 </div>
 </div>
 
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Using-setuptools">Using setuptools<a class="anchor-link" href="#Using-setuptools">&#182;</a></h3>
+<p>If you are using MacOS or Linux, you do the following to create an executable:</p>
+
 </div>
 </div>
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To make python code into a package, we have to write a <code>setup.py</code> file:</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
-
-<span class="n">setup</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Greetings&quot;</span><span class="p">,</span>
-    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
-    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*test&#39;</span><span class="p">]),</span>
-<span class="p">)</span>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>%%bash
+chmod u+x greeter.py
 </pre></div>
 
+    </div>
 </div>
 </div>
+
 </div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can now install this code with</p>
+<p>and then running it as:</p>
 
 </div>
 </div>
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>pip install .</code></pre>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And the package will be then available to use everywhere on the system.</p>
-
-</div>
-</div>
-</div></div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">greetings.greeter</span> <span class="k">import</span> <span class="n">greet</span>
-<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Terry&quot;</span><span class="p">,</span><span class="s2">&quot;Gilliam&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[3]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;Hey, Terry Gilliam.&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Convert-the-script-to-a-module">Convert the script to a module<a class="anchor-link" href="#Convert-the-script-to-a-module">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Of course, there's more to do when taking code from a quick script and turning it into a proper module:</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We need to add docstrings to our functions, so people can know how to use them.</p>
-
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pycat</span> greetings/greetings/greeter.py
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_text output_subarea ">
-<pre>
-<span class="ansi-green-fg">def</span> greet<span class="ansi-blue-fg">(</span>personal<span class="ansi-blue-fg">,</span> family<span class="ansi-blue-fg">,</span> title<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;&#34;</span><span class="ansi-blue-fg">,</span> polite<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-    <span class="ansi-blue-fg">&#34;&#34;&#34; Generate a greeting string for a person.</span>
-
-<span class="ansi-blue-fg">    Parameters</span>
-<span class="ansi-blue-fg">    ----------</span>
-<span class="ansi-blue-fg">    personal: str</span>
-<span class="ansi-blue-fg">        A given name, such as Will or Jean-Luc</span>
-<span class="ansi-blue-fg">    family: str</span>
-<span class="ansi-blue-fg">        A family name, such as Riker or Picard</span>
-<span class="ansi-blue-fg">    title: str</span>
-<span class="ansi-blue-fg">        An optional title, such as Captain or Reverend</span>
-<span class="ansi-blue-fg">    polite: bool</span>
-<span class="ansi-blue-fg">        True for a formal greeting, False for informal.</span>
-
-<span class="ansi-blue-fg">    Returns</span>
-<span class="ansi-blue-fg">    -------</span>
-<span class="ansi-blue-fg">    string</span>
-<span class="ansi-blue-fg">        An appropriate greeting</span>
-<span class="ansi-blue-fg">    &#34;&#34;&#34;</span>
-
-    greeting<span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;How do you do, &#34;</span> <span class="ansi-green-fg">if</span> polite <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">&#34;Hey, &#34;</span>
-    <span class="ansi-green-fg">if</span> title<span class="ansi-blue-fg">:</span>
-        greeting <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">f&#34;{title} &#34;</span>
-
-    greeting <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">f&#34;{personal} {family}.&#34;</span>
-    <span class="ansi-green-fg">return</span> greeting
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">greetings</span>
-<span class="n">help</span><span class="p">(</span><span class="n">greetings</span><span class="o">.</span><span class="n">greeter</span><span class="o">.</span><span class="n">greet</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Help on function greet in module greetings.greeter:
-
-greet(personal, family, title=&#39;&#39;, polite=False)
-    Generate a greeting string for a person.
-    
-    Parameters
-    ----------
-    personal: str
-        A given name, such as Will or Jean-Luc
-    family: str
-        A family name, such as Riker or Picard
-    title: str
-        An optional title, such as Captain or Reverend
-    polite: bool
-        True for a formal greeting, False for informal.
-    
-    Returns
-    -------
-    string
-        An appropriate greeting
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The documentation string explains how to use the function; don't worry about this for now, we'll consider
-this on <a href="./04documentation.ipynb">the next notebook</a>.</p>
-
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Write-an-executable-script">Write an executable script<a class="anchor-link" href="#Write-an-executable-script">&#182;</a></h3>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pycat</span> greetings/greetings/command.py
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_text output_subarea ">
-<pre><span class="ansi-green-fg">from</span> argparse <span class="ansi-green-fg">import</span> ArgumentParser
-<span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>greeter <span class="ansi-green-fg">import</span> greet <span class="ansi-red-fg"># Note python 3 relative import</span>
-
-<span class="ansi-green-fg">def</span> process<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-   parser <span class="ansi-blue-fg">=</span> ArgumentParser<span class="ansi-blue-fg">(</span>description<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;Generate appropriate greetings&#34;</span><span class="ansi-blue-fg">)</span>
-
-   parser<span class="ansi-blue-fg">.</span>add_argument<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;--title&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;-t&#39;</span><span class="ansi-blue-fg">)</span>
-   parser<span class="ansi-blue-fg">.</span>add_argument<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;--polite&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;-p&#39;</span><span class="ansi-blue-fg">,</span> action<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;store_true&#34;</span><span class="ansi-blue-fg">)</span>
-   parser<span class="ansi-blue-fg">.</span>add_argument<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;personal&#39;</span><span class="ansi-blue-fg">)</span>
-   parser<span class="ansi-blue-fg">.</span>add_argument<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;family&#39;</span><span class="ansi-blue-fg">)</span>
-
-   arguments <span class="ansi-blue-fg">=</span> parser<span class="ansi-blue-fg">.</span>parse_args<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-   print<span class="ansi-blue-fg">(</span>greet<span class="ansi-blue-fg">(</span>arguments<span class="ansi-blue-fg">.</span>personal<span class="ansi-blue-fg">,</span> arguments<span class="ansi-blue-fg">.</span>family<span class="ansi-blue-fg">,</span> 
-               arguments<span class="ansi-blue-fg">.</span>title<span class="ansi-blue-fg">,</span> arguments<span class="ansi-blue-fg">.</span>polite<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">if</span> __name__ <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#34;__main__&#34;</span><span class="ansi-blue-fg">:</span>
-    process<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Specify-dependencies">Specify dependencies<a class="anchor-link" href="#Specify-dependencies">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We use the setup.py file to specify the packages we depend on:</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">setup</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Greetings&quot;</span><span class="p">,</span>
-    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
-    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*test&#39;</span><span class="p">]),</span>
-    <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;argparse&#39;</span><span class="p">]</span>
-<span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Specify-entry-point">Specify entry point<a class="anchor-link" href="#Specify-entry-point">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This allows us to create a command to execute part of our library. In this case when we execute <code>greet</code> on the terminal, we will be calling the <code>process</code> function under <code>greetings/command.py</code>.</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pycat</span> greetings/setup.py
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_text output_subarea ">
-<pre>
-<span class="ansi-green-fg">from</span> setuptools <span class="ansi-green-fg">import</span> setup<span class="ansi-blue-fg">,</span> find_packages
-
-setup<span class="ansi-blue-fg">(</span>
-    name<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;Greetings&#34;</span><span class="ansi-blue-fg">,</span>
-    version<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;0.1.0&#34;</span><span class="ansi-blue-fg">,</span>
-    packages<span class="ansi-blue-fg">=</span>find_packages<span class="ansi-blue-fg">(</span>exclude<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;*test&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
-    install_requires<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;argparse&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span>
-    entry_points<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">{</span>
-        <span class="ansi-blue-fg">&#39;console_scripts&#39;</span><span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">[</span>
-            <span class="ansi-blue-fg">&#39;greet = greetings.command:process&#39;</span>
-        <span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And the scripts are now available as command line commands:</p>
-
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span>%%bash
-greet --help
+./greeter.py --help
 </pre></div>
 
     </div>
@@ -13765,7 +13354,7 @@ greet --help
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>usage: greet [-h] [--title TITLE] [--polite] personal family
+<pre>usage: greeter.py [-h] [--title TITLE] [--polite] personal family
 
 Generate appropriate greetings
 
@@ -13784,16 +13373,25 @@ optional arguments:
 </div>
 </div>
 
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>if you are using Windows, change <code>bash</code> by <code>cmd</code>, and prepend the commands by <code>python</code></p>
+
+<pre><code>%%cmd
+python greeter.py John Cleese</code></pre>
+
+</div>
+</div>
 </div></div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span>%%bash
-greet Terry Gilliam
-greet --polite Terry Gilliam
-greet Terry Gilliam --title Cartoonist
+./greeter.py John Cleese
 </pre></div>
 
     </div>
@@ -13810,9 +13408,7 @@ greet Terry Gilliam --title Cartoonist
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hey, Terry Gilliam.
-How do you do, Terry Gilliam.
-Hey, Cartoonist Terry Gilliam.
+<pre>Hey, John Cleese.
 </pre>
 </div>
 </div>
@@ -13820,39 +13416,14 @@ Hey, Cartoonist Terry Gilliam.
 </div>
 </div>
 
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Installing-from-GitHub">Installing from GitHub<a class="anchor-link" href="#Installing-from-GitHub">&#182;</a></h3>
-</div>
-</div>
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We could now submit "greeter" to PyPI for approval, so everyone could <code>pip install</code> it.</p>
-<p>However, when using git, we don't even need to do that: we can install directly from any git URL:</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>pip install git+git://github.com/jamespjh/greeter</code></pre>
-
-</div>
-</div>
-</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span>%%bash
-greet Lancelot the-Brave --title Sir
+./greeter.py --polite John Cleese
 </pre></div>
 
     </div>
@@ -13869,164 +13440,7 @@ greet Lancelot the-Brave --title Sir
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hey, Sir Lancelot the-Brave.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Write-a-readme-file">Write a readme file<a class="anchor-link" href="#Write-a-readme-file">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>e.g.:</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> greetings/README.md
-
-<span class="n">Greetings</span><span class="err">!</span>
-<span class="o">==========</span>
-
-<span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">very</span> <span class="n">simple</span> <span class="n">example</span> <span class="n">package</span> <span class="n">used</span> <span class="k">as</span> <span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">UCL</span>
-<span class="p">[</span><span class="n">Research</span> <span class="n">Software</span> <span class="n">Engineering</span> <span class="k">with</span> <span class="n">Python</span><span class="p">](</span><span class="n">development</span><span class="o">.</span><span class="n">rc</span><span class="o">.</span><span class="n">ucl</span><span class="o">.</span><span class="n">ac</span><span class="o">.</span><span class="n">uk</span><span class="o">/</span><span class="n">training</span><span class="o">/</span><span class="n">engineering</span><span class="p">)</span> <span class="n">course</span><span class="o">.</span>
-
-<span class="n">Usage</span><span class="p">:</span>
-    
-<span class="n">Invoke</span> <span class="n">the</span> <span class="n">tool</span> <span class="k">with</span> <span class="err">`</span><span class="n">greet</span> <span class="o">&lt;</span><span class="n">FirstName</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">Secondname</span><span class="o">&gt;</span><span class="err">`</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Overwriting greetings/README.md
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Write-a-license-file">Write a license file<a class="anchor-link" href="#Write-a-license-file">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>e.g.:</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> greetings/LICENSE.md
-
-<span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="n">University</span> <span class="n">College</span> <span class="n">London</span> <span class="mi">2014</span>
-
-<span class="n">This</span> <span class="s2">&quot;greetings&quot;</span> <span class="n">example</span> <span class="n">package</span> <span class="ow">is</span> <span class="n">granted</span> <span class="n">into</span> <span class="n">the</span> <span class="n">public</span> <span class="n">domain</span><span class="o">.</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Overwriting greetings/LICENSE.md
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Write-a-citation-file">Write a citation file<a class="anchor-link" href="#Write-a-citation-file">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>e.g.:</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> greetings/CITATION.md
-
-<span class="n">If</span> <span class="n">you</span> <span class="n">wish</span> <span class="n">to</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">this</span> <span class="n">course</span><span class="p">,</span> <span class="n">please</span> <span class="n">cite</span> <span class="n">the</span> <span class="n">URL</span>
-<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">-</span><span class="n">pages</span><span class="o">.</span><span class="n">ucl</span><span class="o">.</span><span class="n">ac</span><span class="o">.</span><span class="n">uk</span><span class="o">/</span><span class="n">rsd</span><span class="o">-</span><span class="n">engineeringcourse</span><span class="o">/</span>
-
-<span class="n">Portions</span> <span class="n">of</span> <span class="n">the</span> <span class="n">material</span> <span class="n">are</span> <span class="n">taken</span> <span class="kn">from</span> <span class="p">[</span><span class="n">Software</span> <span class="n">Carpentry</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">software</span><span class="o">-</span><span class="n">carpentry</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Overwriting greetings/CITATION.md
+<pre>How do you do, John Cleese.
 </pre>
 </div>
 </div>
@@ -14035,129 +13449,13 @@ greet Lancelot the-Brave --title Sir
 </div>
 
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>You may well want to formalise this using the <a href="https://codemeta.github.io/">codemeta.json</a> standard or the <a href="http://citation-file-format.github.io/">citation file format</a> - these don't have wide adoption yet, but we recommend it.</p>
-
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Write-some-unit-tests">Write some unit tests<a class="anchor-link" href="#Write-some-unit-tests">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Separating the script from the logical module made this possible:</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> greetings/greetings/test/test_greeter.py
-<span class="kn">import</span> <span class="nn">yaml</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">..greeter</span> <span class="k">import</span> <span class="n">greet</span>
-
-<span class="k">def</span> <span class="nf">test_greeter</span><span class="p">():</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span>
-                           <span class="s1">&#39;fixtures&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;samples.yaml&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">fixtures_file</span><span class="p">:</span>
-        <span class="n">fixtures</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fixtures_file</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">fixture</span> <span class="ow">in</span> <span class="n">fixtures</span><span class="p">:</span>
-            <span class="n">answer</span> <span class="o">=</span> <span class="n">fixture</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;answer&#39;</span><span class="p">)</span>
-            <span class="k">assert</span> <span class="n">greet</span><span class="p">(</span><span class="o">**</span><span class="n">fixture</span><span class="p">)</span> <span class="o">==</span> <span class="n">answer</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Overwriting greetings/greetings/test/test_greeter.py
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Add a fixtures file:</p>
-
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> greetings/greetings/test/fixtures/samples.yaml
-<span class="o">-</span> <span class="n">personal</span><span class="p">:</span> <span class="n">Eric</span>
-  <span class="n">family</span><span class="p">:</span> <span class="n">Idle</span>
-  <span class="n">answer</span><span class="p">:</span> <span class="s2">&quot;Hey, Eric Idle.&quot;</span>
-<span class="o">-</span> <span class="n">personal</span><span class="p">:</span> <span class="n">Graham</span>
-  <span class="n">family</span><span class="p">:</span> <span class="n">Chapman</span>
-  <span class="n">polite</span><span class="p">:</span> <span class="kc">True</span>
-  <span class="n">answer</span><span class="p">:</span> <span class="s2">&quot;How do you do, Graahm Chapman.&quot;</span>
-<span class="o">-</span> <span class="n">personal</span><span class="p">:</span> <span class="n">Michael</span>
-  <span class="n">family</span><span class="p">:</span> <span class="n">Palin</span>
-  <span class="n">title</span><span class="p">:</span> <span class="n">CBE</span>
-  <span class="n">answer</span><span class="p">:</span> <span class="s2">&quot;Hey, CBE Mike Palin.&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Overwriting greetings/greetings/test/fixtures/samples.yaml
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span>%%bash
-pytest
+./greeter.py John Cleese --title Dr
 </pre></div>
 
     </div>
@@ -14174,32 +13472,7 @@ pytest
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>============================= test session starts ==============================
-platform linux -- Python 3.6.3, pytest-3.10.1, py-1.7.0, pluggy-0.8.0
-rootdir: /home/dvd/Documents/Work/RIST/Teaching/rsd-engineeringcourse/ch04packaging, inifile:
-collected 1 item
-
-greetings/greetings/test/test_greeter.py F                               [100%]
-
-=================================== FAILURES ===================================
-_________________________________ test_greeter _________________________________
-
-    def test_greeter():
-        with open(os.path.join(os.path.dirname(__file__),
-                               &#39;fixtures&#39;,
-                               &#39;samples.yaml&#39;)) as fixtures_file:
-            fixtures = yaml.load(fixtures_file)
-            for fixture in fixtures:
-                answer = fixture.pop(&#39;answer&#39;)
-&gt;               assert greet(**fixture) == answer
-E               AssertionError: assert &#39;How do you d...aham Chapman.&#39; == &#39;How do you do...aahm Chapman.&#39;
-E                 - How do you do, Graham Chapman.
-E                 ?                    -
-E                 + How do you do, Graahm Chapman.
-E                 ?                   +
-
-greetings/greetings/test/test_greeter.py:12: AssertionError
-=========================== 1 failed in 0.13 seconds ===========================
+<pre>Hey, Dr John Cleese.
 </pre>
 </div>
 </div>
@@ -14207,32 +13480,6 @@ greetings/greetings/test/test_greeter.py:12: AssertionError
 </div>
 </div>
 
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Developer-Install">Developer Install<a class="anchor-link" href="#Developer-Install">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If you modify your source files, you would now find it appeared as if the program doesn't change.</p>
-<p>That's because pip install <strong>copies</strong> the files.</p>
-<p>If you want to install a package, but keep working on it, you can do:</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>pip install --editable .</code></pre>
-
-</div>
-</div>
 </div></div></section></section>
 </div>
 </div>

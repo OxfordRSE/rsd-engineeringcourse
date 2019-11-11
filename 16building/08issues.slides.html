@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>02Argparse slides</title>
+<title>08issues slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13242,245 +13242,188 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Argparse">Argparse<a class="anchor-link" href="#Argparse">&#182;</a></h2>
+<h1 id="What-happens-next?">What happens next?<a class="anchor-link" href="#What-happens-next?">&#182;</a></h1>
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This is the standard library for building programs with a command-line interface. Here we show a short introduction to it, but we recommend to read the <a href="https://docs.python.org/3/howto/argparse.html">official tutorial</a>.</p>
-
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> greeter.py
-<span class="ch">#!/usr/bin/env python</span>
-<span class="kn">from</span> <span class="nn">argparse</span> <span class="k">import</span> <span class="n">ArgumentParser</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Generate appropriate greetings&quot;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--title&#39;</span><span class="p">,</span> <span class="s1">&#39;-t&#39;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--polite&#39;</span><span class="p">,</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;personal&#39;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;family&#39;</span><span class="p">)</span>
-    <span class="n">arguments</span><span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-    
-    <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;How do you do, &quot;</span> <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">polite</span> <span class="k">else</span> <span class="s2">&quot;Hey, &quot;</span>
-    <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
-        <span class="n">greeting</span> <span class="o">+=</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{arguments.title}</span><span class="s2"> &quot;</span>
-    <span class="n">greeting</span> <span class="o">+=</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{arguments.personal}</span><span class="s2"> </span><span class="si">{arguments.family}</span><span class="s2">.&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Writing greeter.py
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If you are using MacOS or Linux, you do the following to create an executable:</p>
+<p>OK, so now you've packaged your software, documented it, licensed it, and shared it with everyone, <em>now</em> you can relax, yes?</p>
+<p>No. Now the bug reports and feature requests come in. A common problem on research software projects is failing to consider how <em>maintenance</em> work will be done - and who'se going to pay for it.</p>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>%%bash
-chmod u+x greeter.py
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>and then running it as:</p>
+<h3 id="Issues">Issues<a class="anchor-link" href="#Issues">&#182;</a></h3><p>Code has <em>bugs</em>. It also has <em>features</em>, things it should do.</p>
+<p>A good project has an organised way of managing these. Generally you should use an issue tracker.</p>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>%%bash
-./greeter.py --help
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>usage: greeter.py [-h] [--title TITLE] [--polite] personal family
-
-Generate appropriate greetings
-
-positional arguments:
-  personal
-  family
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --title TITLE, -t TITLE
-  --polite, -p
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></div><div class="fragment">
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>if you are using Windows, change <code>bash</code> by <code>cmd</code>, and prepend the commands by <code>python</code></p>
-
-<pre><code>%%cmd
-python greeter.py John Cleese</code></pre>
-
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>%%bash
-./greeter.py John Cleese
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hey, John Cleese.
-</pre>
-</div>
-</div>
+<h3 id="Some-Issue-Trackers">Some Issue Trackers<a class="anchor-link" href="#Some-Issue-Trackers">&#182;</a></h3><p>There are lots of good issue trackers.</p>
+<p>The most commonly used open source ones are <a href="http://trac.edgewall.org/">Trac</a> and <a href="http://www.redmine.org/">Redmine</a>.</p>
+<p>Cloud based issue trackers include <a href="http://lighthouseapp.com/">Lighthouse</a> and <a href="https://github.com/blog/831-issues-2-0-the-next-generation">GitHub</a>.</p>
+<p>Commercial solutions include <a href="https://www.atlassian.com/software/jira">Jira</a>.</p>
 
 </div>
 </div>
-
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>%%bash
-./greeter.py --polite John Cleese
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>How do you do, John Cleese.
-</pre>
-</div>
-</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Anatomy-of-an-issue">Anatomy of an issue<a class="anchor-link" href="#Anatomy-of-an-issue">&#182;</a></h3><ul>
+<li>Reporter</li>
+<li>Description</li>
+<li>Owner</li>
+<li>Type [Bug, Feature]</li>
+<li>Component</li>
+<li>Status</li>
+<li>Severity</li>
+</ul>
 
 </div>
 </div>
-
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>%%bash
-./greeter.py John Cleese --title Dr
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hey, Dr John Cleese.
-</pre>
-</div>
-</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Reporting-a-Bug">Reporting a Bug<a class="anchor-link" href="#Reporting-a-Bug">&#182;</a></h3><p>The description should make the bug reproducible:</p>
+<ul>
+<li>Version</li>
+<li>Steps</li>
+</ul>
+<p>If possible, submit a minimal reproducing code fragment - look at this detailed answer about <a href="https://tex.meta.stackexchange.com/a/3225/10934">how to create a minimal example for $LaTeX$</a>.</p>
 
 </div>
 </div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Owning-an-issue">Owning an issue<a class="anchor-link" href="#Owning-an-issue">&#182;</a></h3><ul>
+<li>Whoever the issue is assigned to works next.</li>
+<li>If an issue needs someone else's work, assign it to them.</li>
+</ul>
 
-</div></div></section></section>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Status">Status<a class="anchor-link" href="#Status">&#182;</a></h3><ul>
+<li>Submitted</li>
+<li>Accepted</li>
+<li>Underway</li>
+<li>Blocked</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Resolutions">Resolutions<a class="anchor-link" href="#Resolutions">&#182;</a></h3><ul>
+<li>Resolved</li>
+<li>Will Not Fix</li>
+<li>Not reproducible</li>
+<li>Not a bug (working as intended)</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Bug-triage">Bug triage<a class="anchor-link" href="#Bug-triage">&#182;</a></h3><p>Some organisations use a severity matrix based on:</p>
+<ul>
+<li>Severity [Wrong answer, crash, unusable, workaround, cosmetic...]</li>
+<li>Frequency [All users, most users, some users...]</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-backlog">The backlog<a class="anchor-link" href="#The-backlog">&#182;</a></h3><p>The list of all the bugs that need to be fixed or
+features that have been requested is called the "backlog".</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Development-cycles">Development cycles<a class="anchor-link" href="#Development-cycles">&#182;</a></h3><p>Development goes in <em>cycles</em>.</p>
+<p>Cycles range in length from a week to three months.</p>
+<p>In a given cycle:</p>
+<ul>
+<li>Decide which features should be implemented</li>
+<li>Decide which bugs should be fixed</li>
+<li>Move these issues from the Backlog into the current cycle. (Aka Sprint)</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GitHub-issues">GitHub issues<a class="anchor-link" href="#GitHub-issues">&#182;</a></h3><p>GitHub doesn't have separate fields for status, component, severity etc.
+Instead, it just has labels, which you can create and delete.</p>
+<p>See for example <a href="https://github.com/jupyter/notebook/issues?page=1&amp;state=open">Jupyter</a>.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Version-management">Version management<a class="anchor-link" href="#Version-management">&#182;</a></h2><p>When you release a fixed version of the software, you want to communicate what has changed and make it easy for people to see how up to date they are. <em>Version numbers</em> are an at-a-glance indication of currentness.</p>
+<p>If you're making a library for other programmers, it's common to use <a href="https://semver.org/">semantic versioning</a>. Otherwise you can do what you like.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Marketing-versions">Marketing versions<a class="anchor-link" href="#Marketing-versions">&#182;</a></h3><p>Plenty of projects just use version numbers however their people feel like, to indicate novelty. Examples:</p>
+<ul>
+<li>Linux gets a new version number when Linus Torvalds is ready.</li>
+<li>Linux <em>previously</em> used the convention that experimental versions had odd numbers, stable version had even numbers.</li>
+<li>Canonical release Ubuntu on a schedule, and name versions after the date: version 19.04 was released in April 2019.</li>
+<li>Windows has changed practice, so a home user might have used Windows 3.11, 95, 98, Millennium, XP, Vista, 7, 8, 10.</li>
+<li>Solaris is currently on version 11 but for compatibility reasons is also version 5.11 and 2.11, depending on how you ask.</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Semantic-Versioning">Semantic Versioning<a class="anchor-link" href="#Semantic-Versioning">&#182;</a></h3><p>In version X.Y.Z:</p>
+<ul>
+<li>Z is the patch-level version. Update this if you fix bugs but leave the interface to the code (the way programmers use it) unchanged.</li>
+<li>Y is the minor version. Update this (and set Z to 0) if you add features but leave the interface for existing features unchanged.</li>
+<li>X is the major version. Update this (setting Y and Z to 0) if you change the way existing things work, so people can tell that upgrading is a big task.</li>
+</ul>
+
+</div>
+</div>
+</div></section></section>
 </div>
 </div>
 

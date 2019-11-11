@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>04documentation slides</title>
+<title>06documentation slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13450,43 +13450,14 @@ multiple nested pages of documentation automatically for many functions.</p>
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span>%%bash
-python -m doctest greetings/greetings/greeter.py
+python3 -m doctest greetings/greetings/greeter.py
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>**********************************************************************
-File &#34;greetings/greetings/greeter.py&#34;, line 23, in greeter.greet
-Failed example:
-    greet(&#34;Terry&#34;, &#34;Jones&#34;)
-Expected:
-    &#39;Hey, Terry Jones.
-Got:
-    &#39;Hey, Terry Jones.&#39;
-**********************************************************************
-1 items had failures:
-   1 of   2 in greeter.greet
-***Test Failed*** 1 failures.
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 

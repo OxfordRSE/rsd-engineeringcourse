@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>01Libraries slides</title>
+<title>05installation slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13242,32 +13242,29 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Libraries">Libraries<a class="anchor-link" href="#Libraries">&#182;</a></h2>
+<h1 id="Packaging-your-code">Packaging your code<a class="anchor-link" href="#Packaging-your-code">&#182;</a></h1>
 </div>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Libraries-are-awesome">Libraries are awesome<a class="anchor-link" href="#Libraries-are-awesome">&#182;</a></h3>
+<h2 id="Installing-Libraries">Installing Libraries<a class="anchor-link" href="#Installing-Libraries">&#182;</a></h2>
 </div>
 </div>
 </div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The strength of a language lies as much in the set of libraries available, as it does
-in the language itself.</p>
-<p>A great set of libraries allows for a very powerful programming style:</p>
-<ul>
-<li>Write minimal code yourself</li>
-<li>Choose the right libraries</li>
-<li>Plug them together</li>
-<li>Create impressive results</li>
-</ul>
-<p>Not only is this efficient with your programming time, it's also more efficient with computer
-time.</p>
-<p>The chances are any algorithm you might want to use has already been programmed better by someone else.</p>
+<p>We've seen that there are lots of python libraries. But how do we install them?</p>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The main problem is this: <em>libraries need other libraries</em></p>
 
 </div>
 </div>
@@ -13275,28 +13272,46 @@ time.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Drawbacks-of-libraries.">Drawbacks of libraries.<a class="anchor-link" href="#Drawbacks-of-libraries.">&#182;</a></h3>
+<h3 id="Installing-Geopy-using-Pip">Installing Geopy using Pip<a class="anchor-link" href="#Installing-Geopy-using-Pip">&#182;</a></h3>
 </div>
 </div>
 </div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>On a computer you control, on which you have installed python via Anaconda, you will need to open a <strong>terminal</strong>
+to invoke the library-installer program, <code>pip</code>.</p>
+
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p>Sometimes, libraries are not looked after by their creator: code that is not maintained <em>rots</em>:</p>
-<ul>
-<li>It no longer works with later versions of <em>upstream</em> libraries.</li>
-<li>It doesn't work on newer platforms or systems.</li>
-<li>Features that are needed now, because the field has moved on, are not added</li>
+<li>On windows, go to Start -&gt; Anaconda3 -&gt; Anaconda Prompt</li>
+<li>On mac, start <em>Terminal</em>. </li>
+<li>On linux, open a bash shell.</li>
 </ul>
-</li>
-<li><p>Sometimes, libraries are hard to get working:</p>
-<ul>
-<li>For libraries in pure python, this is almost never a problem</li>
-<li>But many libraries involve <em>compiled components</em>: these can be hard to install.</li>
-</ul>
-</li>
-</ul>
+
+</div>
+</div>
+</div>
+</aside></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Into this shell, type:</p>
+<p><code>pip install geopy</code></p>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The computer will install the package and its dependencies automatically from PyPI (a repository of packages, which we'll talk about later).</p>
 
 </div>
 </div>
@@ -13304,20 +13319,150 @@ time.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Contribute,-don't-duplicate">Contribute, don't duplicate<a class="anchor-link" href="#Contribute,-don't-duplicate">&#182;</a></h3>
+<p>Now, close the Jupyter notebook if you have it open, and reopen it. Check your new library is installed with:</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">geopy</span>
+<span class="n">geocoder</span> <span class="o">=</span> <span class="n">geopy</span><span class="o">.</span><span class="n">geocoders</span><span class="o">.</span><span class="n">Yandex</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;en_US&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">geocoder</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s1">&#39;Cambridge&#39;</span><span class="p">,</span> <span class="n">exactly_one</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[Location(Cambridge, Cambridgeshire County, United Kingdom, (52.208145, 0.133023, 0.0)),
+ Location(Cambridge, Ontario, Canada, (43.370599, -80.318989, 0.0)),
+ Location(Cambridge, Middlesex County, Massachusetts, United States of America, (42.385899, -71.141684, 0.0)),
+ Location(Cambridge, Washington County, State of Idaho, United States of America, (44.572039, -116.678507, 0.0)),
+ Location(Cambridge, Isanti County, Minnesota, United States of America, (45.572595, -93.223783, 0.0)),
+ Location(Cambridge, East London, Republic of South Africa, (-32.978267, 27.884695, 0.0)),
+ Location(Cambridge, Waikato, New Zealand, (-37.889307, 175.465014, 0.0)),
+ Location(Cambridge, Cambridgeshire County, United Kingdom, (52.210303, 0.176447, 0.0)),
+ Location(Cambridge Bay, Nunavut, Canada, (69.11673, -105.067782, 0.0)),
+ Location(Cambridge, Saint James, Jamaica, (18.291699, -77.895883, 0.0))]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Installing-binary-dependencies-with-Conda">Installing binary dependencies with Conda<a class="anchor-link" href="#Installing-binary-dependencies-with-Conda">&#182;</a></h3>
 </div>
 </div>
 </div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><code>pip</code> is the usual Python tool for installing libraries. But there's one area of library installation that is still awkward:
+some python libraries depend not on other <strong>python</strong> libraries, but on libraries in C++ or Fortran.</p>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This can cause you to run into difficulties installing some libraries. 
+Fortunately, for lots of these, Continuum, the makers of Anaconda, provide a carefully managed set of scripts for installing
+these awkward non-python libraries too. You can do this with the <code>conda</code> command line tool, if you're using Anaconda.</p>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Simply type</p>
 <ul>
-<li>You have a duty to the ecosystem of scholarly software:<ul>
-<li>If there's a tool or algorithm you need, find a project which provides it.</li>
-<li>If there are features missing, or problems with it, fix them, <a href="http://xkcd.com/927/">don't create your own</a> library.</li>
+<li><code>conda install &lt;whatever&gt;</code></li>
 </ul>
-</li>
-</ul>
+<p>instead of <code>pip install</code>. This will fetch the python package not from PyPI, but from Anaconda's distribution for your platform, and manage any non-python dependencies too.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Where-do-these-libraries-go?">Where do these libraries go?<a class="anchor-link" href="#Where-do-these-libraries-go?">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">geopy</span><span class="o">.</span><span class="n">__path__</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;/usr/local/lib/python3.5/site-packages/geopy&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Python knows where to look for possible library installations in a list of places, called the <code>$PYTHONPATH</code> (<code>%PYTHONPATH%</code> in Windows).
+It will try each of these places in turn, until it finds a matching library name.</p>
 
 </div>
 </div>
@@ -13325,94 +13470,16 @@ time.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="How-to-choose-a-library">How to choose a library<a class="anchor-link" href="#How-to-choose-a-library">&#182;</a></h3>
+<h3 id="Python-virtual-environments">Python virtual environments<a class="anchor-link" href="#Python-virtual-environments">&#182;</a></h3>
 </div>
 </div>
 </div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Is the code on an open version control tool like GitHub?<ul>
-<li>When was the last commit?</li>
-<li>How often are there commits?</li>
-</ul>
-</li>
-<li>Can you find the lead contributor on the internet?</li>
-<li>Do they respond when approached:<ul>
-<li>emails to developer list</li>
-<li>personal emails</li>
-<li>tweets</li>
-<li><a href="https://freenode.net">irc</a>/<a href="http://gitter.im/">gitter</a>/<a href="http://slack.com/">slack</a>/<a href="http://riot.im/">[matrix]</a></li>
-<li>issues raised on GitHub</li>
-</ul>
-</li>
-<li>Are there contributors other than the lead contributor?</li>
-<li>Is there discussion of the library on Stack Exchange?</li>
-<li>Is it on standard package repositories? (PyPI, apt/yum/brew)</li>
-<li>Are there any tests?</li>
-<li>Download it. Can you build it? Do the tests pass?</li>
-<li>Is there an open test dashboard? (Travis/Jenkins/CDash)</li>
-<li>What dependencies does the library itself have? Do they pass this list?</li>
-<li>Are different versions of the library clearly labeled with version numbers?</li>
-<li>Is there a changelog?</li>
-</ul>
-
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Sensible-Version-Numbering">Sensible Version Numbering<a class="anchor-link" href="#Sensible-Version-Numbering">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The best approach to version numbers clearly distinguishes kinds of change:</p>
-<p>Given a version number MAJOR.MINOR.PATCH, e.g. 2.11.14 increment the:</p>
-<ul>
-<li>MAJOR version when you make incompatible API changes,</li>
-<li>MINOR version when you add functionality in a backwards-compatible manner, and</li>
-<li>PATCH version when you make backwards-compatible bug fixes.</li>
-</ul>
-<p>This is called <a href="http://semver.org">Semantic Versioning</a>.</p>
-
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-Python-Standard-Library">The Python Standard Library<a class="anchor-link" href="#The-Python-Standard-Library">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python comes with a powerful <a href="https://docs.python.org/2/library/">standard library</a>.</p>
-<p>Learning python is as much about learning this library as learning the language itself.</p>
-<p>You've already seen a few packages in this library: <code>math</code>, <code>pdb</code>, <code>datetime</code>.</p>
-
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-Python-Package-Index">The Python Package Index<a class="anchor-link" href="#The-Python-Package-Index">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python's real power, however, comes with the Python Package Index: <a href="https://pypi.org/">PyPI</a>.
-This is a huge array of libraries, with all kinds of capabilities, all easily installable from the 
-command line or through your Python distribution.</p>
+<p>Sometimes you need to have different versions of a package installed, or you would like to install a set of libraries that you don't want to affect the rest of the installation in your system. In such cases you can create environments that are isolated from the rest.</p>
+<p>There are multiple solutions to this, only for <a href="https://docs.python.org/3.6/library/venv.html">python</a> or for <a href="https://conda.io/docs/user-guide/tasks/manage-environments.html">anaconda</a>.
+Find more information on <a href="https://realpython.com/python-virtual-environments-a-primer/">how to create and use the virtual enviroments</a>.</p>
 
 </div>
 </div>
